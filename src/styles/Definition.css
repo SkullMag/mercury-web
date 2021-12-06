@@ -1,0 +1,18 @@
+.Definition {
+    margin-top: 20px;
+    /* text-align: center; */
+}
+
+#partOfSpeech, #exampleHead {
+    font-weight: bold;
+    color: green;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+#definition, #example {
+    margin: 5px;
+    font-weight: normal;
+    font-size: 24px;
+    color: white;
+}

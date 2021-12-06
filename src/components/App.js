@@ -1,8 +1,7 @@
-import logo from './logo.svg';
-import WordInputForm from './components/WordInput.js';
-import DefinitionsView from './components/DefinitionsView.js';
-import Header from "./components/Header.js";
-import "./styles/App.css"
+import WordInputForm from './WordInput.js';
+import DefinitionsView from './DefinitionsView.js';
+import Header from "./Header.js";
+import "../styles/App.css"
 import React from "react";
 
 
