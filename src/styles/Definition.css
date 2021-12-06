@@ -1,6 +1,5 @@
 .Definition {
     margin-top: 20px;
-    /* text-align: center; */
 }
 
 #partOfSpeech, #exampleHead {
@@ -15,4 +14,6 @@
     font-weight: normal;
     font-size: 24px;
     color: white;
+    padding-left: 20px;
+    padding-right: 150px;
 }
