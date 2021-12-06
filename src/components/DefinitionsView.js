@@ -13,7 +13,7 @@ function DefinitionsView(props) {
     }
     return (
         <div className="DefinitionsView">
-            {definitions}
+            {definitions.length > 0 ? definitions : <p><span id="partOfSpeech">Try to search for another word</span></p>}
         </div>
     );
 }
