@@ -6,7 +6,7 @@ import "../styles/Header.css";
 function Header() {
     return (
         <div className="Header">
-            <img src={logo} height="32px" id="logo" />
+            <img alt="logo" src={logo} height="32px" id="logo" />
             <span className="titleName">Mercury</span> 
         </div>
     );
