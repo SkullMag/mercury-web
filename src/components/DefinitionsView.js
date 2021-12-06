@@ -5,7 +5,7 @@ import React from "react";
 
 
 function DefinitionsView(props) {
-    var definitions = Array();
+    var definitions = [];
     if (props.parentState.json_data != null) {
         props.parentState.json_data.forEach((elem) => {
             definitions.push(( <Definition partOfSpeech={capitalize(elem.partOfSpeech)} definition={elem.definition} example={elem.example} /> ));
