@@ -1,10 +1,11 @@
 .Header {
     background-color: black;
-    height: 75px;
+    height: 50px;
+    padding: 0 0 0 20px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    /* justify-content: center;  */
 }
 
 .titleName {
@@ -14,5 +15,16 @@
 
 #logo {
     margin-right: 5px;
+}
+
+.pageLink {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none; 
+    opacity: 0.5;
+}
+
+.active {
+    opacity: 1;
 }
 
