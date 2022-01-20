@@ -5,29 +5,18 @@ import { render } from "react-dom";
 import { 
     BrowserRouter,
     Routes,
-    Route
+    Route  
 } from "react-router-dom";
 import Header from './components/Header';
-import { useState } from 'react';
 
 
 const rootElement = document.getElementById("root");
-
-function Index() {
-    const [state, setState] = useState({
-        activeLink: 0
-    });
-
-    return (
-        <BrowserRouter>
-            <Header activeLink={state.activeLink}/>
+render(<BrowserRouter>
+            <Header />
             <Routes>
                 <Route path="/definitions" element={<Definitions />} />
                 <Route path="/login" element={<LoginForm />} />
             </Routes>
-        </BrowserRouter>
-    );
-}
-render(<Index />, 
+        </BrowserRouter>, 
        rootElement);
 
