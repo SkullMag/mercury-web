@@ -2,17 +2,20 @@ import WordInputForm from './WordInput.jsx';
 import DefinitionsView from './DefinitionsView.jsx';
 import "../styles/Definitions.css"
 import React from "react";
+import LoadingIndicator from './LoadingIndicator.jsx';
 
 
 function Definitions() {
     const [state, setState] = React.useState({
-        json_data: null 
+        json_data: null,
+        isLoading: false
     });
     return (
-        <div className="App">
+        <div className="Definitions">
             <section>
-                <WordInputForm setParentState={setState}/>
-                <DefinitionsView parentState={state}/>
+                <WordInputForm setParentState={setState} parentState={state}/>
+                {/* {state.isLoading ? <LoadingIndicator /> : null} */}
+                {state.json_data !== null ? <DefinitionsView parentState={state}/> : null}
             </section>
         </div>
     );
