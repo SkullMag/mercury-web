@@ -2,7 +2,6 @@ import WordInputForm from './WordInput.jsx';
 import DefinitionsView from './DefinitionsView.jsx';
 import "../styles/Definitions.css"
 import React from "react";
-import LoadingIndicator from './LoadingIndicator.jsx';
 
 
 function Definitions() {
