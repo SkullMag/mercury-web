@@ -1,5 +1,5 @@
 async function requestWord(word) {
-    var url = "http://172.20.10.3:8080/api/definition/{}";
+    var url = "http://localhost:8080/api/definition/{}";
     let response = await fetch(url.replace("{}", word));
     return await response.json()
 }

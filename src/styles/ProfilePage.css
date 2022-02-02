@@ -1,3 +1,35 @@
-.username {
-    color: white
+/* .profilePage {
+    text-align: center;
+} */
+.profilePage {
+    margin: auto;
+    text-align: center;
 }
+
+/* section{
+  padding: 0 15px;
+}
+
+@media (min-width: 575.98px){
+    section {
+        padding: 0 calc(50% - 200px);
+  }
+}
+
+@media (min-width: 767.98px){
+section {
+    padding: 0 calc(50% - 200px);
+}
+}
+
+@media (min-width: 991.98px) {
+section {
+    padding: 0 calc(50% - 200px);
+}
+}
+
+@media (min-width: 1199.98px){
+section {
+    padding: 0 calc(50% - 200px);
+}
+} */
