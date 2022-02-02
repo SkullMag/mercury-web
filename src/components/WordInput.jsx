@@ -17,15 +17,26 @@ function WordInputForm(props) {
     }
 
     async function search() {
+        props.setParentState({
+            ...props.parentState,
+            isLoading: true
+        });
         let result = await requestWord(state.word.toLowerCase());
         props.setParentState({
+            ...props.parentState,
             json_data: result
         });
     }
 
+    function keyPressed(event) {
+        if (event.key === "Enter") {
+            search()
+        }
+    }
+
     return (
         <div className="WordInputForm">
-            <input className="WordInput" value={state.word} onChange={inputChanged} placeholder="Type the word" type="text"/>
+            <input className="WordInput" value={state.word} onChange={inputChanged} onKeyPress={keyPressed} placeholder="Type the word" type="text"/>
             <button className="SearchButton" onClick={search}>Search</button>
         </div>
     );
