@@ -11,6 +11,7 @@ import Header from './components/Header';
 import ProfilePage from './components/ProfilePage';
 import Definitions from './components/Definitions';
 import LoginForm from './components/LoginForm';
+import React from 'react';
 
 
 function Index() {
