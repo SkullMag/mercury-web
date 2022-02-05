@@ -19,14 +19,13 @@ import { fetchUser } from "./store/reducers/auth";
 store.dispatch(fetchUser);
 
 function Index() {
-    const authState = useSelector((state) => state.auth);
     return (
         <Provider store={store}>
             <BrowserRouter>
                 <Header />
                 <Routes>
                     <Route path="/definitions" element={<Definitions />} />
-                    <Route path="/account" element={authState.token === null ? <Navigate to="/login" /> : <ProfilePage />} />
+                    <Route path="/account" element={localStorage.getItem("token") === null ? <Navigate to="/login" /> : <ProfilePage />} />
                     <Route path="/login" element={<LoginForm/>} />
                 </Routes>
             </BrowserRouter>
