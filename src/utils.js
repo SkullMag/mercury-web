@@ -7,7 +7,11 @@ async function requestWord(word) {
 
 function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1)
-
 }
 
-export {requestWord, capitalize};
+function pronounceWord(url) {
+    var player = new Audio(url);
+    player.play()
+}
+
+export {requestWord, capitalize, pronounceWord};

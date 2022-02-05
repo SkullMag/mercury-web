@@ -1,30 +1,17 @@
 import { useState, useEffect } from "react";
+import React from "react";
 import "../styles/ProfileInfoCard.css"
+import { useSelector } from "react-redux";
+
 
 function ProfileInfoCard() {
-    const [state, setState] = useState({
-        username: "",
-        name: "",
-        surname: ""
-    });
-    useEffect(() => {
-        fetch("http://localhost:8080/api/getUserData/" + window.localStorage.token)
-        .then(response => response.json())
-        .then(function(response) {
-            setState({
-                username: response.username,
-                name: response.name,
-                surname: response.surname,
-                isVerified: response.isVerified
-            });
-        });
-    }, []);
+    const authState = useSelector((state) => state.auth);
     return (
         <div className="profileInfoCard">
-            <img className="userProfilePicture" src={"http://localhost:8080/api/getUserProfilePicture/" + state.username} />
-            <h1 className="fullname">{state.name + " " + state.surname}</h1>
-            <p className="username">@{state.username}</p>
-            <i><q className="profileBio">CEO of Mercury</q></i>
+            <img className="userProfilePicture" src={authState.username !== "" ? "http://localhost:8080/api/getUserProfilePicture/" + authState.username : ""} />
+            <h1 className="fullname">{authState.fullname}</h1>
+            <p className="username">@{authState.username}</p>
+            <i><q className="profileBio">{authState.profileBio}</q></i>
         </div>
     );
 }
