@@ -13,21 +13,21 @@ import Definitions from './components/Definitions';
 import LoginForm from './components/LoginForm';
 import React from 'react';
 import store from "./store";
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
+import { fetchUser } from "./store/reducers/auth";
 
+store.dispatch(fetchUser);
 
 function Index() {
-    const [tokenState, setTokenState] = useState({
-        token: window.localStorage.getItem("token")
-    });
+    const authState = useSelector((state) => state.auth);
     return (
         <Provider store={store}>
             <BrowserRouter>
                 <Header />
                 <Routes>
                     <Route path="/definitions" element={<Definitions />} />
-                    <Route path="/account" element={tokenState.token === null ? <Navigate to="/login" /> : <ProfilePage />} />
-                    <Route path="/login" element={<LoginForm setTokenState={setTokenState}/>} />
+                    <Route path="/account" element={authState.token === null ? <Navigate to="/login" /> : <ProfilePage />} />
+                    <Route path="/login" element={<LoginForm/>} />
                 </Routes>
             </BrowserRouter>
         </Provider>
