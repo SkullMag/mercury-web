@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+
+var initialState = {
     username: "",
     fullname: "",
     profileBio: "",
     isSubscribed: "",
     token: ""
 };
+
 
 export const slice = createSlice({
     name: "auth",
@@ -24,4 +26,16 @@ export const slice = createSlice({
 });
 
 export const { loginAction } = slice.actions;
+export async function fetchUser(dispatch, _) {
+    const token = localStorage.getItem("token");
+    if (token !== null) {
+        const response = await fetch("http://localhost:8080/api/getUserData/" + token);
+        if (response.status === 200) {
+            var json_data = await response.json();
+            json_data.token = token;
+            console.log(json_data); 
+            dispatch(slice.actions.loginAction(json_data));
+        }
+    }
+}
 export default slice.reducer;
