@@ -12,6 +12,8 @@ import ProfilePage from './components/ProfilePage';
 import Definitions from './components/Definitions';
 import LoginForm from './components/LoginForm';
 import React from 'react';
+import store from "./store";
+import { Provider } from 'react-redux';
 
 
 function Index() {
@@ -19,14 +21,16 @@ function Index() {
         token: window.localStorage.getItem("token")
     });
     return (
-        <BrowserRouter>
-            <Header />
-            <Routes>
-                <Route path="/definitions" element={<Definitions />} />
-                <Route path="/account" element={tokenState.token === null ? <Navigate to="/login" /> : <ProfilePage />} />
-                <Route path="/login" element={<LoginForm setTokenState={setTokenState}/>} />
-            </Routes>
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <Header />
+                <Routes>
+                    <Route path="/definitions" element={<Definitions />} />
+                    <Route path="/account" element={tokenState.token === null ? <Navigate to="/login" /> : <ProfilePage />} />
+                    <Route path="/login" element={<LoginForm setTokenState={setTokenState}/>} />
+                </Routes>
+            </BrowserRouter>
+        </Provider>
     );
 }
 
