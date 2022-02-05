@@ -37,9 +37,7 @@ function LoginForm(props) {
         let response = await fetch(url, {method: "POST", body: JSON.stringify(state)});
         if (response.status === 200) {
             let json_data = await response.json();
-            // window.localStorage.setItem("token", json_data.token);
-            console.log(json_data);
-            props.setTokenState({token: json_data.token});
+            localStorage.setItem("token", json_data.token);
             store.dispatch(loginAction(json_data));
             setState({
                 ...state,
