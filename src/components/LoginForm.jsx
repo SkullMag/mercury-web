@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/LoginForm.css"
 import { useState } from "react"
-import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useStore } from "react-redux";
 import { loginAction } from "../store/reducers/auth"
 
@@ -9,11 +9,11 @@ import { loginAction } from "../store/reducers/auth"
 function LoginForm(props) {
 
     const store = useStore();
+    const navigate = useNavigate();
 
     const [state, setState] = useState({
         username: "",
         password: "",
-        redirect: ""
     });
 
     function usernameChanged(event) {
@@ -39,10 +39,7 @@ function LoginForm(props) {
             let json_data = await response.json();
             localStorage.setItem("token", json_data.token);
             store.dispatch(loginAction(json_data));
-            setState({
-                ...state,
-                redirect: "/account"
-            });
+            navigate("/account");
         }
     }
 
