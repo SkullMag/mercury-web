@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useStore } from "react-redux";
 import { loginAction } from "../store/reducers/auth"
+import { Link } from "react-router-dom";
 
 
 function LoginForm(props) {
@@ -49,8 +50,10 @@ function LoginForm(props) {
             <input type="text" placeholder="Username" onChange={usernameChanged} className="card inputForm usernameInput" />
             <br/>
             <input type="password" placeholder="Password" onChange={passwordChanged} className="card inputForm passwordInput" />
-            <br/> 
+            <br/>
             <button className="card loginButton" onClick={login}>Sign In</button>
+            <br/>
+            <Link to="/signup" className="signupButton">New to Mercury? Sign up</Link>
         </div>
     );
 }
