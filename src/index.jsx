@@ -13,7 +13,7 @@ import Definitions from './components/Definitions';
 import LoginForm from './components/LoginForm';
 import React from 'react';
 import store from "./store";
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import { fetchUser } from "./store/reducers/auth";
 
 store.dispatch(fetchUser);

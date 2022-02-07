@@ -19,13 +19,17 @@ export const slice = createSlice({
             state.isSubscribed = action.payload.isSubscribed;
             state.username = action.payload.username;
             state.profileBio = action.payload.profileBio;
-            state.token = action.payload.token
+            state.token = action.payload.token;
             return state
+        },
+        logoutAction: () => {
+            localStorage.removeItem("token");
+            return initialState
         }
     }
 });
 
-export const { loginAction } = slice.actions;
+export const { loginAction, logoutAction } = slice.actions;
 export async function fetchUser(dispatch, _) {
     const token = localStorage.getItem("token");
     if (token !== null) {
