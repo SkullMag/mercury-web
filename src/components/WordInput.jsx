@@ -36,8 +36,8 @@ function WordInputForm(props) {
 
     return (
         <div className="WordInputForm">
-            <input className="WordInput" value={state.word} onChange={inputChanged} onKeyPress={keyPressed} placeholder="Type the word" type="text"/>
-            <button className="SearchButton" onClick={search}>Search</button>
+            <input className="card WordInput" value={state.word} onChange={inputChanged} onKeyPress={keyPressed} placeholder="Type the word" type="text"/>
+            <button className="card SearchButton" onClick={search}>Search</button>
         </div>
     );
 }

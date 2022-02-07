@@ -43,18 +43,14 @@ function LoginForm(props) {
         }
     }
 
-    if (state.redirect !== "") {
-        return (<Navigate to={state.redirect} />)
-    } 
-
     return (
         <div className="loginForm">
             <h1 className="loginTitle">Sign In</h1>
-            <input type="text" placeholder="Username" onChange={usernameChanged} className="inputForm usernameInput" />
+            <input type="text" placeholder="Username" onChange={usernameChanged} className="card inputForm usernameInput" />
             <br/>
-            <input type="password" placeholder="Password" onChange={passwordChanged} className="inputForm passwordInput" />
+            <input type="password" placeholder="Password" onChange={passwordChanged} className="card inputForm passwordInput" />
             <br/> 
-            <button className="loginButton" onClick={login}>Sign In</button>
+            <button className="card loginButton" onClick={login}>Sign In</button>
         </div>
     );
 }
