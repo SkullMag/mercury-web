@@ -2,7 +2,7 @@ import "../styles/ProfilePage.css"
 import ProfileInfoCard from "./ProfileInfoCard";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { logoutAction } from "../store/reducers/auth";
+import { logoutAction } from "../store/slices/auth";
 import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
