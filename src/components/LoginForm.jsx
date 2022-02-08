@@ -3,8 +3,9 @@ import "../styles/LoginForm.css"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useStore } from "react-redux";
-import { loginAction } from "../store/reducers/auth"
+import { loginAction } from "../store/slices/auth"
 import { Link } from "react-router-dom";
+import { SERVER_IP } from "../constants";
 
 
 function LoginForm(props) {
@@ -34,7 +35,7 @@ function LoginForm(props) {
     }
 
     async function login() {
-        const url = "http://localhost:8080/api/login";
+        const url = SERVER_IP + "/api/login";
         let response = await fetch(url, {method: "POST", body: JSON.stringify(state)});
         if (response.status === 200) {
             let json_data = await response.json();
@@ -53,7 +54,7 @@ function LoginForm(props) {
             <br/>
             <button className="card loginButton" onClick={login}>Sign In</button>
             <br/>
-            <Link to="/signup" className="signupButton">New to Mercury? Sign up</Link>
+            <p className="signupLink">New to Mercury? <Link to="/signup">Sign up</Link></p>
         </div>
     );
 }
