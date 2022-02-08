@@ -7,7 +7,6 @@
     padding-left: 10px;
     padding-right: 10px;
     background: rgba(255, 255, 255, 1);
-
 }
 
 .usernameInput {
@@ -36,9 +35,4 @@
     color: white;
     cursor: pointer;
     margin-bottom: 10px;
-}
-
-.signupButton {
-    margin-top: 50px;
-
 }
