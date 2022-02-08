@@ -1,9 +1,10 @@
+import { SERVER_IP } from "./constants";
+
 async function requestWord(word) {
-    var url = "http://localhost:8080/api/definition/{}";
+    var url = SERVER_IP + "/api/definition/{}";
     let response = await fetch(url.replace("{}", word));
     return await response.json()
 }
-
 
 function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1)
