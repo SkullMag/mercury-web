@@ -1,0 +1,51 @@
+.confirmationCodeForm {
+    text-align: center;
+}
+
+.confirmationCode {
+    margin-top: 20px;
+}
+
+.number {
+    width: 4.5rem;
+    height: 5rem;
+    margin-left: 1rem;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+}
+
+.ReactInputVerificationCode__item {
+    background: white;
+    border-radius : 16px !important;
+    /* From https://css.glass */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border-radius: 16px !important;
+
+    cursor: pointer;
+}
+
+.ReactInputVerificationCode__item.is-active {
+    border: 1px solid #4B64F2;
+}
+
+input[name="first"] {
+    margin-left: 0;
+}
+
+.checkCode {
+    width: calc(4.5rem * 4 + 3rem);
+    height: 50px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    background: #4B64F2;
+}
+
+.resendTimer {
+    color: #6c757d;
+    margin-bottom: 0;
+}

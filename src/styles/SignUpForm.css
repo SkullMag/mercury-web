@@ -1,3 +1,11 @@
+.signupForm {
+    text-align: center;
+}
+
+.signupTitle{
+    margin-bottom: 20px;
+}
+
 .inputForm {
     border: none;
     height: 50px;
@@ -7,26 +15,10 @@
     padding-left: 10px;
     padding-right: 10px;
     background: rgba(255, 255, 255, 1);
-}
-
-.usernameInput {
-    margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.passwordInput {
-    margin-bottom: 20px;
-}
-
-.loginForm {
-    text-align: center;
-}
-
-.loginTitle {
-    margin-bottom: 10px;
-}
-
-.loginButton {
+.signupButton {
     background-color: #4B64F2;
     width: 320px;
     height: 50px;
@@ -35,8 +27,25 @@
     color: white;
     cursor: pointer;
     margin-bottom: 10px;
+    margin-top: 0;
 }
 
-.signupLink {
-    margin-top: 0
+.passwordStrengthBar {
+    width: 300px;
+    margin: auto;
+    margin-bottom: -10px;
+}
+
+.usernameInput {
+    margin-top: 0px;
+}
+
+.passwordsMatch {
+    color: red;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.errorText {
+    color: red;
 }
