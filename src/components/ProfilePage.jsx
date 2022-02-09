@@ -1,13 +1,18 @@
 import "../styles/ProfilePage.css"
 import ProfileInfoCard from "./ProfileInfoCard";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../store/slices/auth";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function ProfilePage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const authState = useSelector((state) => state.auth);
+
+    if (authState.token === "") {
+        return (<Navigate to="/login" />);
+    }
 
     function logout() {
         dispatch(logoutAction());
