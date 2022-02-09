@@ -16,7 +16,7 @@ import ProfilePage from './components/ProfilePage';
 import Definitions from './components/Definitions';
 import LoginForm from './components/LoginForm';
 import SignUpForm from "./components/SignUpForm";
-import ConfirmationCodePage from "./components/ConfirmationCodePage";
+import VerificationCodePage from "./components/VerificationCodePage";
 
 store.dispatch(fetchUser);
 
@@ -27,10 +27,10 @@ function Index() {
                 <Header />
                 <Routes>
                     <Route path="/definitions" element={<Definitions />} />
-                    <Route path="/account" element={localStorage.getItem("token") === null ? <Navigate to="/login" /> : <ProfilePage />} />
+                    <Route path="/account" element={<ProfilePage />} />
                     <Route path="/login" element={<LoginForm/>} />
                     <Route path="/signup" element={<SignUpForm />} />
-                    <Route path="/confirmation" element={<ConfirmationCodePage />} />
+                    <Route path="/verification" element={<VerificationCodePage />} />
                </Routes>
             </BrowserRouter>
         </Provider>
