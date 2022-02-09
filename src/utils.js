@@ -23,4 +23,9 @@ function validateEmail(email) {
       );
 }
 
-export {requestWord, capitalize, pronounceWord, validateEmail};
+async function requestVerificationCode(username, email) {
+    const response = await fetch(SERVER_IP + "/api/requestVerificationCode/" + username + "/" + email);
+    return [response.status === 200 ? null : await response.json(), response.status];
+}
+
+export {requestWord, capitalize, pronounceWord, validateEmail, requestVerificationCode};

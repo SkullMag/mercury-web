@@ -2,7 +2,7 @@ import "../styles/SignUpForm.css";
 import { useState } from "react";
 import React from "react";
 import PasswordStrengthBar from "react-password-strength-bar";
-import { validateEmail } from "../utils";
+import { requestVerificationCode, validateEmail } from "../utils";
 import { useNavigate } from "react-router-dom";
 
 
@@ -59,7 +59,7 @@ function SingUpForm() {
         });
     }
 
-    function signUp() {
+    async function signUp() {
         if (!validateEmail(state.email)) {
             setState({
                 ...state,
@@ -84,12 +84,27 @@ function SingUpForm() {
             });
             return;
         }
+        if (state.username.length < 3) {
+            setState({
+                ...state,
+                errorText: "Username is too short"
+            });
+            return;
+        }
 
         setState({
             ...state,
             errorText: ""
         });
-        navigate("/confirmation")
+        var [json_data, status_code] = await requestVerificationCode(state.username.slice(1), state.email);
+        if (status_code !== 200) {
+            setState({
+                ...state,
+                errorText: json_data.error
+            });
+        } else {
+            navigate("/verification", { state: state, setState: setState});
+        }
 
     }
 
