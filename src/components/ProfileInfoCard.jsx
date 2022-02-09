@@ -10,7 +10,7 @@ function ProfileInfoCard() {
             <img className="userProfilePicture" alt="Profile" src={authState.username !== "" ? "http://localhost:8080/api/getUserProfilePicture/" + authState.username : ""} />
             <h1 className="fullname">{authState.fullname}</h1>
             <p className="username">@{authState.username}</p>
-            <i><q className="profileBio">{authState.profileBio}</q></i>
+            {authState.profileBio !== "" ? <i><q className="profileBio">{authState.profileBio}</q></i> : null }
         </div>
     );
 }
