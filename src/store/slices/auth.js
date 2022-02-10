@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { SERVER_IP } from "../../constants";
 
 
-var initialState = {
+const initialState = {
     username: "",
     fullname: "",
     profileBio: "",
     isSubscribed: "",
-    token: ""
+    token: localStorage.getItem("token") === null ? "" : localStorage.getItem("token")
 };
 
 
