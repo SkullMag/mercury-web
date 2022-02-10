@@ -12,6 +12,7 @@ function LoginForm(props) {
 
     const store = useStore();
     const navigate = useNavigate();
+    const [errorText, setErrorText] = useState("");
 
     const [state, setState] = useState({
         username: "",
@@ -37,17 +38,20 @@ function LoginForm(props) {
     async function login() {
         const url = SERVER_IP + "/api/login";
         let response = await fetch(url, {method: "POST", body: JSON.stringify(state)});
+        let json_data = await response.json();
         if (response.status === 200) {
-            let json_data = await response.json();
             localStorage.setItem("token", json_data.token);
             store.dispatch(loginAction(json_data));
             navigate("/account");
+        } else {
+            setErrorText(json_data.error)
         }
     }
 
     return (
         <div className="loginForm">
             <h1 className="loginTitle">Sign In</h1>
+            <p className="errorText">{errorText}</p>
             <input type="text" placeholder="Username" onChange={usernameChanged} className="card inputForm usernameInput" />
             <br/>
             <input type="password" placeholder="Password" onChange={passwordChanged} className="card inputForm passwordInput" />
