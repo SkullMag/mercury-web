@@ -3,8 +3,7 @@ import { render } from "react-dom";
 import { 
     BrowserRouter,
     Routes,
-    Route,
-    Navigate
+    Route
 } from "react-router-dom";
 import React from 'react';
 import store from "./store";
