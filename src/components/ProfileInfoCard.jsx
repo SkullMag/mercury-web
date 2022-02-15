@@ -1,14 +1,14 @@
 import React from "react";
 import "../styles/ProfileInfoCard.css"
 import { useSelector } from "react-redux";
-import { SERVER_IP } from "../constants";
 
 
 function ProfileInfoCard() {
     const authState = useSelector((state) => state.auth);
-    var image = ""
+    let image = "";
+
     if (authState.username !== "") {
-        image = "https://www.tinygraphs.com/isogrids/" + authState.username + "?theme=bythepool&numcolors=4&size=200&fmt=svg";
+        image = "http://www.tinygraphs.com/isogrids/" + authState.username + "?theme=bythepool&numcolors=4&size=200&fmt=svg";
     }
 
     return (
