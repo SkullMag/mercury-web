@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/ProfileInfoCard.css"
 import { useSelector } from "react-redux";
+import { TINYGRAPH_IP } from "../constants";
 
 
 function ProfileInfoCard() {
@@ -8,7 +9,7 @@ function ProfileInfoCard() {
     let image = "";
 
     if (authState.username !== "") {
-        image = "http://www.tinygraphs.com/isogrids/" + authState.username + "?theme=bythepool&numcolors=4&size=200&fmt=svg";
+        image = TINYGRAPH_IP + "/spaceinvaders/" + authState.username + "?theme=bythepool&numcolors=4&size=200&fmt=svg";
     }
 
     return (
