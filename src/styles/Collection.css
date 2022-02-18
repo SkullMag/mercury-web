@@ -1,0 +1,76 @@
+.collectionDetails, .collectionFeatures {
+    padding-left: 20px;
+    position: relative;
+}
+
+.collectionDetails {
+    cursor: pointer;
+    border-radius: 16px 16px 0 0 !important;
+    z-index: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    box-shadow: none;
+    /* background: #ffffff; */
+}
+
+.collectionFeatures {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    z-index: 2;
+    border-radius: 0 0 16px 16px;
+    box-shadow: none;
+    border-top: 1px solid lightgray
+    /* background: rgba(75, 100, 242, 0.85); */
+}
+
+.collectionName {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.wordCount {
+    margin: 0;
+    color: #6c757d;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.collection {
+    margin-bottom: 20px;
+}
+
+.authorUsername {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.chevron {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+}
+
+.heart {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    background-image:url( 'https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png');
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size:2900%;
+  }
+  
+  .heart:hover .heart.liked{
+    background-position:right;
+  }
+  
+  .is_animating {
+    animation: heart-burst .8s steps(28) 1;
+  }
+  
+  @keyframes heart-burst {
+    from {background-position:left;}
+    to { background-position:right;}
+  }
