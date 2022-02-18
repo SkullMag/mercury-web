@@ -40,6 +40,8 @@ export async function fetchUser(dispatch, _) {
             var json_data = await response.json();
             json_data.token = token;
             dispatch(slice.actions.loginAction(json_data));
+        } else {
+            dispatch(slice.actions.logoutAction())
         }
     }
 }
