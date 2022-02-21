@@ -6,20 +6,20 @@ import React from "react";
 
 function DefinitionsView(props) {
     var definitions = [];
-    var isFound = !("error" in props.parentState.json_data);
-    if (props.parentState.json_data != null && isFound) {
-        var def = props.parentState.json_data.definitions
+    var isFound = !("error" in props.json_data);
+    if (props.json_data != null && isFound) {
+        var def = props.json_data.definitions
         for (var partOfSpeech in def) {
             definitions.push((<Definition partOfSpeech={capitalize(partOfSpeech)} definition={def[partOfSpeech]} example={def[partOfSpeech][0].example} />))
         }
     }
     if (isFound) {
         return (
-            <div className="DefinitionsView">
+            <div className={props.className + " DefinitionsView"} style={props.style}>
                 <div className="wordView">
-                    <p className="word">{capitalize(props.parentState.json_data.word)}</p>
-                    { props.parentState.json_data.phonetics !== "" ?
-                    <button title="Pronounce" className="pronounceButton" onClick={() => pronounceWord(props.parentState.json_data.phonetics)}>
+                    <p className="word">{capitalize(props.json_data.word)}</p>
+                    { props.json_data.phonetics !== "" ?
+                    <button title="Pronounce" className="pronounceButton" onClick={() => pronounceWord(props.json_data.phonetics)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
                         <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
                         <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
@@ -27,21 +27,21 @@ function DefinitionsView(props) {
                     </svg>
                     </button>
                     : null}
-                    <button title="Add to collection" className="card addToCollection">
+                    { props.addToCollectionButton ? <button title="Add to collection" className="card addToCollection"> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
     <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
     <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
     </svg>
                     </button>
+                    : null}
                 </div>
                 {definitions}
-                {/* {definitions.length > 0 ? definitions : <p id="definition"><span id="partOfSpeech">Try to search for another word</span></p>} */}
             </div>
             
         );
     } else {
         return (
-            <div className="DefinitionsView">
+            <div className={props.className + " DefinitionsView"} style={props.style}>
                 <p id="definition"><span id="partOfSpeech">Try to search for another word</span></p>
             </div>
         );
