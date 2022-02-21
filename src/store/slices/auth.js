@@ -33,7 +33,6 @@ export const slice = createSlice({
 export const { loginAction, logoutAction, signupAction } = slice.actions;
 export async function fetchUser(dispatch, _) {
     const token = localStorage.getItem("token");
-    console.log(token)
     if (token !== null) {
         const response = await fetch(SERVER_IP + "/api/getUserData/" + token);
         if (response.status === 200) {
