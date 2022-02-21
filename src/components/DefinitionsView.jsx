@@ -1,6 +1,6 @@
 import "../styles/DefinitionsView.css";
 import Definition from "./Definition.jsx"
-import { capitalize, pronounceWord } from "../utils.js";
+import { pronounceWord } from "../utils.js";
 import React from "react";
 
 
@@ -10,14 +10,14 @@ function DefinitionsView(props) {
     if (props.json_data != null && isFound) {
         var def = props.json_data.definitions
         for (var partOfSpeech in def) {
-            definitions.push((<Definition partOfSpeech={capitalize(partOfSpeech)} definition={def[partOfSpeech]} example={def[partOfSpeech][0].example} />))
+            definitions.push((<Definition partOfSpeech={partOfSpeech} definition={def[partOfSpeech]} example={def[partOfSpeech][0].example} />))
         }
     }
     if (isFound) {
         return (
             <div className={props.className + " DefinitionsView"} style={props.style}>
                 <div className="wordView">
-                    <p className="word">{capitalize(props.json_data.word)}</p>
+                    <p className="word">{props.json_data.word}</p>
                     { props.json_data.phonetics !== "" ?
                     <button title="Pronounce" className="pronounceButton" onClick={() => pronounceWord(props.json_data.phonetics)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-volume-up-fill" viewBox="0 0 16 16">
