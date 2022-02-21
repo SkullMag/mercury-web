@@ -1,13 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Collection.css"
 import { capitalize } from "../utils.js";
 
 
 function Collection(props) {
+
+    const navigate = useNavigate();
+
+    function openCollection() {
+        navigate("/collections/" + props.authorUsername + "/" + props.collectionName)
+    }
+
     return (
         <div className="card collection">
-            <div className="card collectionDetails">
+            <div className="card collectionDetails" onClick={openCollection}>
                 <p className="collectionName">
                     {capitalize(props.collectionName)}
                 </p>
