@@ -16,6 +16,10 @@
     color: #6c757d;
 }
 
+.word {
+    text-transform: capitalize;
+}
+
 .definitionsList {
     margin-top: 10px;
     margin-bottom: 10px;
