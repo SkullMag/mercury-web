@@ -1,4 +1,5 @@
 import React from "react";
+import { capitalize } from "../utils";
 import "../styles/Definition.css";
 
 
@@ -15,7 +16,7 @@ function Definition(props) {
          
     return (
         <div className="Definition">
-            <p id="definition"><span id="partOfSpeech">{props.partOfSpeech}:&nbsp;</span>
+            <p id="definition"><span id="partOfSpeech">{capitalize(props.partOfSpeech)}:&nbsp;</span>
             <ol className="definitionsList">
                 {definitions}
             </ol>
