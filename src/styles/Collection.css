@@ -8,7 +8,8 @@
     border-radius: 16px 16px 0 0 !important;
     z-index: 0;
     padding-top: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    background: rgba(255, 255, 255, 1);
     box-shadow: none;
     /* background: #ffffff; */
 }
@@ -19,7 +20,8 @@
     z-index: 2;
     border-radius: 0 0 16px 16px;
     box-shadow: none;
-    border-top: 1px solid lightgray
+    border-top: 1px solid lightgray;
+    background: rgba(255, 255, 255, 1);
     /* background: rgba(75, 100, 242, 0.85); */
 }
 
@@ -27,6 +29,7 @@
     margin: 0;
     font-size: 24px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .wordCount {
@@ -51,26 +54,3 @@
     transform: translateY(-50%);
     right: 20px;
 }
-
-.heart {
-    cursor: pointer;
-    height: 50px;
-    width: 50px;
-    background-image:url( 'https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png');
-    background-position: left;
-    background-repeat:no-repeat;
-    background-size:2900%;
-  }
-  
-  .heart:hover .heart.liked{
-    background-position:right;
-  }
-  
-  .is_animating {
-    animation: heart-burst .8s steps(28) 1;
-  }
-  
-  @keyframes heart-burst {
-    from {background-position:left;}
-    to { background-position:right;}
-  }

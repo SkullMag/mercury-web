@@ -14,7 +14,7 @@ function Definitions() {
             <section>
                 <WordInputForm setParentState={setState} parentState={state}/>
                 {/* {state.isLoading ? <LoadingIndicator /> : null} */}
-                {state.json_data !== null ? <DefinitionsView parentState={state}/> : null}
+                {state.json_data !== null ? <DefinitionsView json_data={state.json_data} addToCollectionButton={true} className="card" style={{marginBottom: "200px"}} /> : null}
             </section>
         </div>
     );

@@ -12,7 +12,7 @@ function WordInputForm(props) {
         var word = event.target.value;
         setState({
             ...state,
-            word: capitalize(word) 
+            word: capitalize(word)
         });
     }
 

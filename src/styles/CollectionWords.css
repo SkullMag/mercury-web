@@ -1,0 +1,39 @@
+.collectionHeader {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    
+    height: 40px;
+    line-height: 40px;
+    background: rgba(255, 255, 255, 1);
+}
+
+.learnWordsButton {
+    border: none;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 16px;
+    background: #4B64F2;
+    color: white;
+    height: 100%;
+    margin-left: auto;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.collectionTitle {
+    font-size: 24px;
+    font-weight: bold;
+    height: 100%;
+    text-transform: capitalize;
+
+}
+
+.colWords {
+    background: rgba(255, 255, 255, 1);
+    margin-bottom: 200px;
+}

@@ -7,7 +7,7 @@ async function requestWord(word) {
 }
 
 function capitalize(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1)
+    return word.length > 0 ? word.charAt(0).toUpperCase() + (word.length > 1 ? word.slice(1) : ""): ""
 }
 
 function pronounceWord(url) {
