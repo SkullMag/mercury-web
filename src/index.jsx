@@ -17,6 +17,7 @@ import LoginForm from './components/LoginForm';
 import SignUpForm from "./components/SignUpForm";
 import VerificationCodePage from "./components/VerificationCodePage";
 import Collections from "./components/Collections";
+import CollectionWords from './components/CollectionWords';
 
 store.dispatch(fetchUser);
 
@@ -31,6 +32,7 @@ function Index() {
                     <Route path="/login" element={<LoginForm/>} />
                     <Route path="/signup" element={<SignUpForm />} />
                     <Route path="/verification" element={<VerificationCodePage />} />
+                    <Route path="/collections/:username/:collectionName" element={<CollectionWords />} />
                     <Route path="/collections" element={<Collections />} />
                </Routes>
             </BrowserRouter>
