@@ -5,12 +5,14 @@ import React from "react";
 
 
 function DefinitionsView(props) {
-    var definitions = [];
-    var isFound = !("error" in props.json_data);
+    let definitions = [];
+    let isFound = !("error" in props.json_data);
     if (props.json_data != null && isFound) {
-        var def = props.json_data.definitions
+        let def = props.json_data.definitions
+        let i = 0;
         for (var partOfSpeech in def) {
-            definitions.push((<Definition partOfSpeech={partOfSpeech} definition={def[partOfSpeech]} example={def[partOfSpeech][0].example} />))
+            definitions.push((<Definition key={i} partOfSpeech={partOfSpeech} definition={def[partOfSpeech]} example={def[partOfSpeech][0].example} />))
+            i += 1;
         }
     }
     if (isFound) {
@@ -49,4 +51,4 @@ function DefinitionsView(props) {
 }
 
 
-export default DefinitionsView;
+export default React.memo(DefinitionsView);
