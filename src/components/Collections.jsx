@@ -22,18 +22,15 @@ function Collections() {
         }
     }, [authState.username]);
 
-    let collections = [];
-    state.collections.forEach(elem => {
-        collections.push((<Collection authorUsername={elem.username} wordCount={elem.wordCount} collectionName={elem.name} />))
-    });
     return (
         <div className="collections">
             <center>
             <Toggler />
             </center>
             <section>
-
-                {collections}
+                {state.collections.map((elem, i) => (
+                    <Collection key={i} authorUsername={elem.username} wordCount={elem.wordCount} collectionName={elem.name} />
+                ))}
             </section>
         </div>
     );
