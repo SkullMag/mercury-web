@@ -19,7 +19,7 @@
 }
 
 .signupButton {
-    background-color: #4B64F2;
+    background-color: var(--button-color);
     width: 320px;
     height: 50px;
     border: none;

@@ -10,7 +10,7 @@
 }
 
 .SearchButton {
-    background: #4B64F2;
+    background: var(--button-color);
     height: 100%;
     border-radius: 16px;
     color: white;
