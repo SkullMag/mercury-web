@@ -13,7 +13,7 @@ function CollectionWords() {
     const [collectionWords, setCollectionWords] = useState([]);
     useEffect(() => {
         if (authState.username !== "") {
-            fetch(SERVER_IP + "/api/getCollectionWords/" + authState.token + "/" + username + "/" + collectionName)
+            fetch([SERVER_IP, 'api', 'getCollectionWords', authState.token, username, collectionName].join("/"))
                 .then(async response => setCollectionWords(await response.json()));
         }
     }, [authState.username]);
