@@ -2,6 +2,7 @@ import WordInputForm from './WordInput.jsx';
 import DefinitionsView from './DefinitionsView.jsx';
 import "../styles/Definitions.css"
 import React from "react";
+import AddToCollectionModal from './AddToCollectionModal.jsx';
 
 
 function Definitions() {
@@ -9,11 +10,11 @@ function Definitions() {
         json_data: null,
         isLoading: false
     });
+
     return (
         <div className="Definitions">
             <section>
                 <WordInputForm setParentState={setState} parentState={state}/>
-                {/* {state.isLoading ? <LoadingIndicator /> : null} */}
                 {state.json_data !== null ? <DefinitionsView json_data={state.json_data} addToCollectionButton={true} className="card" style={{marginBottom: "200px"}} /> : null}
             </section>
         </div>
