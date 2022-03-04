@@ -18,9 +18,18 @@ export function DropdownMenu({ header, body, footer, isHidden }) {
 
 export function DropdownItem(props) {
     const [isActive, setActive] = React.useState(false)
+
+    function itemSelected(e) {
+        const status = isActive
+        setActive(!status)
+        props.onSelect(e.target.textContent, status)
+    }
     return (
-        <div className={isActive ? "dropdown-item active" : "dropdown-item"} onClick={_ => setActive(!isActive)}>
+        <div className={isActive ? "dropdown-item active" : "dropdown-item"} onClick={itemSelected}>
             {props.children}
+            <div className="right-item" style={{"margin-left": "auto", display: isActive ? "flex" : "none"}}>
+                {props.right}
+            </div>
         </div>
     )
 }
