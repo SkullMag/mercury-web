@@ -22,6 +22,8 @@
     box-shadow: none;
     border-top: 1px solid lightgray;
     background: rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
     /* background: rgba(75, 100, 242, 0.85); */
 }
 
@@ -53,4 +55,19 @@
     top: 50%;
     transform: translateY(-50%);
     right: 20px;
+}
+
+.profilePicture {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    margin-right: 20px;
+    transition: width 0.3s, height 0.3s, border-radius 0.3s;
+}
+
+.profilePicture:hover {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    z-index: 50;
 }

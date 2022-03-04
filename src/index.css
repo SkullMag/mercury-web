@@ -26,3 +26,7 @@ input {
   -webkit-backdrop-filter: blur(5px);
   border-radius: 16px;
 }
+
+:root {
+  --button-color: #4B64F2;
+}
