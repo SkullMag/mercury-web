@@ -31,7 +31,7 @@ function DefinitionsView(props) {
                     </svg>
                     </button>
                     : null}
-                    { props.addToCollectionButton ? <AddToCollectionButton /> : null}
+                    { props.addToCollectionButton ? <AddToCollectionButton word={props.json_data.word} /> : null}
                 </div>
                 {definitions}
             </div>
