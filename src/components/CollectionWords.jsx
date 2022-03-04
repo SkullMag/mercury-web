@@ -26,7 +26,7 @@ function CollectionWords() {
                     <button className="learnWordsButton">Learn</button>
                 </div>
                 <div className="card colWords">
-                    {collectionWords.map((elem, i) => (
+                    {collectionWords.sort((a, b) => a.word > b.word).map((elem, i) => (
                         <CollectionWord key={i} jsonData={elem} style={{
                             borderBottom: i === collectionWords.length - 1 ? "none" : "1px solid lightgray"
                         }} />))}
