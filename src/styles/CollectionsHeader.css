@@ -1,0 +1,43 @@
+.collections-header {
+    height: 60px;
+    /* background-color: white; */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 px 0 10px !important;
+}
+
+.createCollectionButton, .selectCollectionButton, .deleteCollectionButton {
+    height: 40px;
+    width: 100px;
+    background: var(--button-color);
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.createCollectionButton:hover {
+    background: var(--button-hovered-color);
+}
+
+.selectCollectionButton:hover {
+    background-color: rgba(75, 100, 242, 0.15);
+}
+
+.deleteCollectionButton:hover {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+.deleteCollectionButton {
+    margin-left: 10px;
+    background: rgba(255, 0, 0, 0.9);
+}
+
+.selectCollectionButton {
+    margin-left: 10px;
+    background-color: rgba(75, 100, 242, 0.2);
+    color: var(--button-color)
+}
