@@ -5,6 +5,7 @@ import { SERVER_IP } from "../constants";
 import Collection from "./Collection"
 import { useState } from "react";
 import Toggler from "./Toggler";
+import CollectionsHeader from "./CollectionsHeader";
 
 
 function Collections() {
@@ -24,10 +25,8 @@ function Collections() {
 
     return (
         <div className="collections">
-            <center>
-            <Toggler />
-            </center>
             <section>
+                <CollectionsHeader />
                 {state.collections.map((elem, i) => (
                     <Collection key={i} authorUsername={elem.username} wordCount={elem.wordCount} collectionName={elem.name} />
                 ))}
