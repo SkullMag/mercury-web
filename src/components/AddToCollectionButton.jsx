@@ -7,11 +7,13 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { capitalize } from "../utils";
 import { CheckIcon } from "../icons/CheckIcon";
+import { useTranslation } from "react-i18next";
 
 export default function AddToCollectionButton({ word }) {
     const [dropdownHidden, setDropdownHidden] = React.useState(true)
     const authState = useSelector(state => state.auth)
     const [collections, setCollections] = React.useState([])
+    const [t, _] = useTranslation("dictionary")
     let selectedCollections = new Set()
 
     useEffect(async () => {
@@ -40,7 +42,7 @@ export default function AddToCollectionButton({ word }) {
             </button>
             <DropdownMenu 
                 title="Choose collections" 
-                header={(<p>Choose collections</p>)}
+                header={(<p>{t("chooseCollections")}</p>)}
                 body={collections.map((collection, i) => {
                     return (
                         <DropdownItem onSelect={collectionSelected} key={i} right={<CheckIcon width={32} height={32} fill="white"/>}>
@@ -50,7 +52,7 @@ export default function AddToCollectionButton({ word }) {
                 })} 
                 footer={(
                     <>
-                        <button className="addToCollectionsButton" onClick={saveChanges}>Add</button>
+                        <button className="addToCollectionsButton" onClick={saveChanges}>{t("addToCollectionsButton")}</button>
                         {/* <br />
                         <button className="cancelChoiceButton" onClick={() => setDropdownHidden(hidden => !hidden)}>Cancel</button> */}
                     </>

@@ -4,11 +4,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../store/slices/auth";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function ProfilePage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const authState = useSelector((state) => state.auth);
+    const [t, _] = useTranslation("auth")
 
     if (authState.token === "") {
         return (<Navigate to="/login" />);
@@ -23,7 +25,7 @@ function ProfilePage() {
         <div className="profilePage">
             <section>
                 <ProfileInfoCard/>
-                <button onClick={logout} className="card logoutButton">Log Out</button>
+                <button onClick={logout} className="card logoutButton">{t("logoutButton")}</button>
             </section>
         </div>
     );

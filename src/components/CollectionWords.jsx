@@ -5,12 +5,15 @@ import { useParams } from "react-router-dom";
 import { SERVER_IP } from "../constants";
 import CollectionWord from "./CollectionWord";
 import "../styles/CollectionWords.css"
+import { useTranslation } from "react-i18next";
 
 
 function CollectionWords() {
     const { username, collectionName } = useParams();
     const authState = useSelector(state => state.auth);
     const [collectionWords, setCollectionWords] = useState([]);
+    const [t, _] = useTranslation("collectionWords")
+
     useEffect(() => {
         if (authState.username !== "") {
             fetch([SERVER_IP, 'api', 'getCollectionWords', authState.token, username, collectionName].join("/"))
@@ -23,7 +26,7 @@ function CollectionWords() {
             <section>
                 <div className="card collectionHeader">
                     <p className="collectionTitle">{collectionName}</p>
-                    <button className="learnWordsButton">Learn</button>
+                    <button className="learnWordsButton">{t("learnButton")}</button>
                 </div>
                 <div className="card colWords">
                     {collectionWords.sort((a, b) => a.word > b.word).map((elem, i) => (

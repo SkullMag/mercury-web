@@ -3,9 +3,12 @@ import Definition from "./Definition.jsx"
 import { pronounceWord } from "../utils.js";
 import React from "react";
 import AddToCollectionButton from "./AddToCollectionButton"
+import { useTranslation } from "react-i18next";
 
 
 function DefinitionsView(props) {
+    const [t, _] = useTranslation("dictionary")
+    
     let definitions = [];
     let isFound = !("error" in props.json_data);
     if (props.json_data != null && isFound) {
@@ -40,7 +43,7 @@ function DefinitionsView(props) {
     } else {
         return (
             <div className={props.className + " DefinitionsView"} style={props.style}>
-                <p id="definition"><span id="partOfSpeech">Try to search for another word</span></p>
+                <p id="definition"><span id="partOfSpeech">{t("tryAnotherWord")}</span></p>
             </div>
         );
     }
