@@ -1,0 +1,41 @@
+{
+    "navbar" : {
+        "dictionary": "Dictionary",
+        "collections": "Collections",
+        "account": "Account"
+    },
+    "dictionary": {
+        "wordInputPlaceholder": "Type the word",
+        "searchButton": "Search",
+        "tryAnotherWord": "Try to search for another word",
+        "chooseCollections": "Choose collections",
+        "addToCollectionsButton": "Add"
+    },
+    "collections": {
+        "createCollectionButton": "Create",
+        "deleteCollectionButton": "Delete",
+        "cancelSelectionButton": "Cancel",
+        "startSelectionButton": "Select"
+    },
+    "collectionWords": {
+        "learnButton": "Learn"
+    },
+    "auth": {
+        "passwordsDontMatch": "Passwords don't match",
+        "invalidEmail": "Email is invalid",
+        "weakPassword": "Password is too weak",
+        "shortFullname": "Fullname is too short",
+        "shortUsername": "Username is too short",
+        "fullnamePlaceholder": "Fullname",
+        "emailPlaceholder": "Email",
+        "usernamePlaceholder": "Username",
+        "passwordPlaceholder": "Enter password",
+        "enterPasswordAgainPlaceholder": "Enter password again",
+        "signUpButton": "Sign Up",
+        "signUpTitle": "Sign Up",
+        "signInButton": "Sign In",
+        "signInTitle": "Sign In",
+        "newToMercury": "New to mercury?",
+        "logoutButton": "Log out"
+    }
+}

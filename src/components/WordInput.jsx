@@ -1,12 +1,15 @@
 import "../styles/WordInput.css"
 import React from "react";
 import { requestWord, capitalize } from "../utils.js";
+import { useTranslation } from "react-i18next";
 
 
 function WordInputForm(props) {
     const [state, setState] = React.useState({
         word: ""
     });
+
+    const [t, _] = useTranslation("dictionary")
 
     function inputChanged(event) {
         var word = event.target.value;
@@ -36,8 +39,8 @@ function WordInputForm(props) {
 
     return (
         <div className="WordInputForm">
-            <input className="card WordInput" value={state.word} onChange={inputChanged} onKeyPress={keyPressed} placeholder="Type the word" type="text"/>
-            <button className="card SearchButton" onClick={search}>Search</button>
+            <input className="card WordInput" value={state.word} onChange={inputChanged} onKeyPress={keyPressed} placeholder={t("wordInputPlaceholder")} type="text"/>
+            <button className="card SearchButton" onClick={search}>{t("searchButton")}</button>
         </div>
     );
 }

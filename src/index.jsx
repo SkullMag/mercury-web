@@ -18,25 +18,29 @@ import SignUpForm from "./components/SignUpForm";
 import VerificationCodePage from "./components/VerificationCodePage";
 import Collections from "./components/Collections";
 import CollectionWords from './components/CollectionWords';
+import { Suspense } from 'react';
+import './i18n'
 
 store.dispatch(fetchUser);
 
 function Index() {
     return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route path="/definitions" element={<Definitions />} />
-                    <Route path="/account" element={<ProfilePage />} />
-                    <Route path="/login" element={<LoginForm/>} />
-                    <Route path="/signup" element={<SignUpForm />} />
-                    <Route path="/verification" element={<VerificationCodePage />} />
-                    <Route path="/collections/:username/:collectionName" element={<CollectionWords />} />
-                    <Route path="/collections" element={<Collections />} />
-               </Routes>
-            </BrowserRouter>
-        </Provider>
+        <Suspense fallback="loading">
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Header />
+                    <Routes>
+                        <Route path="/definitions" element={<Definitions />} />
+                        <Route path="/account" element={<ProfilePage />} />
+                        <Route path="/login" element={<LoginForm/>} />
+                        <Route path="/signup" element={<SignUpForm />} />
+                        <Route path="/verification" element={<VerificationCodePage />} />
+                        <Route path="/collections/:username/:collectionName" element={<CollectionWords />} />
+                        <Route path="/collections" element={<Collections />} />
+                </Routes>
+                </BrowserRouter>
+            </Provider>
+        </Suspense>
     );
 }
 

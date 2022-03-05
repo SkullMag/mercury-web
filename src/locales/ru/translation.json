@@ -1,0 +1,41 @@
+{
+    "navbar" : {
+        "dictionary": "Словарь",
+        "collections": "Коллекции",
+        "account": "Аккаунт"
+    },
+    "dictionary": {
+        "wordInputPlaceholder": "Введите слово",
+        "searchButton": "Поиск",
+        "tryAnotherWord": "Попробуйте найти другое слово",
+        "chooseCollections": "Выберите коллекции",
+        "addToCollectionsButton": "Добавить"
+    },
+    "collections": {
+        "createCollectionButton": "Создать",
+        "deleteCollectionButton": "Удалить",
+        "cancelSelectionButton": "Отменить",
+        "startSelectionButton": "Выбрать"
+    },
+    "collectionWords": {
+        "learnButton": "Учить"
+    },
+    "auth": {
+        "passwordsDontMatch": "Пароли различны",
+        "invalidEmail": "Введен неправильный почтовый адрес",
+        "weakPassword": "Пароль слишком слабый",
+        "shortFullname": "Имя слишком короткое",
+        "shortUsername": "Имя пользователя слишком короткое",
+        "fullnamePlaceholder": "Полное имя",
+        "emailPlaceholder": "Email",
+        "usernamePlaceholder": "Имя пользователя",
+        "passwordPlaceholder": "Пароль",
+        "enterPasswordAgainPlaceholder": "Введите пароль снова",
+        "signUpButton": "Зарегистрироваться",
+        "signUpTitle": "Зарегистрироваться",
+        "signInButton": "Войти",
+        "signInTitle": "Войти в аккаунт",
+        "newToMercury": "Нет аккаунта?",
+        "logoutButton": "Выйти"
+    }
+}
