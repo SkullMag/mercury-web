@@ -20,7 +20,7 @@
 }
 
 .SearchButton:hover {
-    color: lightgray;
+    background: var(--button-hovered-color);
     cursor: pointer;
 }
 
