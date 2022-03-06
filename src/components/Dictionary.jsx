@@ -1,10 +1,10 @@
 import WordInputForm from './WordInput.jsx';
 import DefinitionsView from './DefinitionsView.jsx';
-import "../styles/Definitions.css"
+import "../styles/Dictionary.css"
 import React from "react";
 
 
-function Definitions() {
+export default function Dictionary() {
     const [state, setState] = React.useState({
         json_data: null,
         isLoading: false
@@ -20,6 +20,3 @@ function Definitions() {
     );
 
 }
-
-
-export default Definitions;

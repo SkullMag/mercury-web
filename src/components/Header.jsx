@@ -7,12 +7,12 @@ import { useTranslation } from "react-i18next";
 
 function Header(props) {
     const location = useLocation();
-    const [t, _] = useTranslation("navbar")
+    const [t, ] = useTranslation("navbar")
     return (
         <nav className="Header">
             <img alt="logo" src={logo} height="32px" id="logo" />
             <p className="titleName">Mercury</p> 
-            <Link className={location.pathname === "/definitions" ? "pageLink active" : "pageLink"} to="/definitions">{t("dictionary")}</Link>
+            <Link className={location.pathname === "/dictionary" ? "pageLink active" : "pageLink"} to="/dictionary">{t("dictionary")}</Link>
             <Link className={location.pathname === "/collections" ? "pageLink active" : "pageLink"} to="/collections">{t("collections")}</Link>
             <Link className={location.pathname === "/account" ? "pageLink active" : "pageLink"} to="/account">{t("account")}</Link>
         </nav>

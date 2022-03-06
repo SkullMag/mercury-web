@@ -12,7 +12,7 @@ import { fetchUser } from "./store/slices/auth";
 
 import Header from './components/Header';
 import ProfilePage from './components/ProfilePage';
-import Definitions from './components/Definitions';
+import Dictionary from './components/Dictionary';
 import LoginForm from './components/LoginForm';
 import SignUpForm from "./components/SignUpForm";
 import VerificationCodePage from "./components/VerificationCodePage";
@@ -30,7 +30,7 @@ function Index() {
                 <BrowserRouter>
                     <Header />
                     <Routes>
-                        <Route path="/definitions" element={<Definitions />} />
+                        <Route path="/dictionary" element={<Dictionary />} />
                         <Route path="/account" element={<ProfilePage />} />
                         <Route path="/login" element={<LoginForm/>} />
                         <Route path="/signup" element={<SignUpForm />} />
