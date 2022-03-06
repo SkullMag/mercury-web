@@ -7,8 +7,8 @@ import { useTranslation } from "react-i18next";
 
 
 function DefinitionsView(props) {
-    const [t, _] = useTranslation("dictionary")
-    
+    const [t, ] = useTranslation("dictionary")
+
     let definitions = [];
     let isFound = !("error" in props.json_data);
     if (props.json_data != null && isFound) {

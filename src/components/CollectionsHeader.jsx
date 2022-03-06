@@ -4,7 +4,7 @@ import "../styles/CollectionsHeader.css"
 
 export default function CollectionsHeader() {
     const [isSelecting, setSelecting] = React.useState(false)
-    const [t, _] = useTranslation("collections")
+    const [t, ] = useTranslation("collections")
 
     function selectButtonClicked() {
         setSelecting(select => !select)

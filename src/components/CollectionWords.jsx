@@ -12,7 +12,7 @@ function CollectionWords() {
     const { username, collectionName } = useParams();
     const authState = useSelector(state => state.auth);
     const [collectionWords, setCollectionWords] = useState([]);
-    const [t, _] = useTranslation("collectionWords")
+    const [t, ] = useTranslation("collectionWords")
 
     useEffect(() => {
         if (authState.username !== "") {
