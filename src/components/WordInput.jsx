@@ -9,7 +9,7 @@ function WordInputForm(props) {
         word: ""
     });
 
-    const [t, _] = useTranslation("dictionary")
+    const [t, ] = useTranslation("dictionary")
 
     function inputChanged(event) {
         var word = event.target.value;

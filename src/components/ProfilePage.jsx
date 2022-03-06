@@ -10,7 +10,7 @@ function ProfilePage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const authState = useSelector((state) => state.auth);
-    const [t, _] = useTranslation("auth")
+    const [t, ] = useTranslation("auth")
 
     if (authState.token === "") {
         return (<Navigate to="/login" />);
