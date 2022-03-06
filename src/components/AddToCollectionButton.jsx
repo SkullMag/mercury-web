@@ -13,14 +13,17 @@ export default function AddToCollectionButton({ word }) {
     const [dropdownHidden, setDropdownHidden] = React.useState(true)
     const authState = useSelector(state => state.auth)
     const [collections, setCollections] = React.useState([])
-    const [t, _] = useTranslation("dictionary")
+    const [t, ] = useTranslation("dictionary")
     let selectedCollections = new Set()
 
-    useEffect(async () => {
-        const response = await fetch([SERVER_IP, "api", "getCollections", authState.token, authState.username].join("/"))
-        if (response.status === 200) {
-            setCollections(await response.json())
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch([SERVER_IP, "api", "getCollections", authState.token, authState.username].join("/"))
+            if (response.status === 200) {
+                setCollections(await response.json())
+            }
         }
+        fetchData()
     }, [authState.username])
 
     function collectionSelected(name, wasSelected) {
