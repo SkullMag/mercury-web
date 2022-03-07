@@ -29,7 +29,7 @@ function CollectionWords() {
                     <button className="learnWordsButton">{t("learnButton")}</button>
                 </div>
                 <div className="card colWords">
-                    {collectionWords.sort((a, b) => a.word > b.word).map((elem, i) => (
+                    {collectionWords && collectionWords.sort((a, b) => a.word > b.word).map((elem, i) => (
                         <CollectionWord key={i} jsonData={elem} style={{
                             borderBottom: i === collectionWords.length - 1 ? "none" : "1px solid lightgray"
                         }} />))}
