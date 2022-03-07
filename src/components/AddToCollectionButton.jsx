@@ -23,7 +23,9 @@ export default function AddToCollectionButton({ word }) {
                 setCollections(await response.json())
             }
         }
-        fetchData()
+        if (authState.username !== "") {
+            fetchData()
+        }
     }, [authState.username])
 
     function collectionSelected(name, wasSelected) {
