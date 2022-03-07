@@ -15,7 +15,12 @@
         "createCollectionButton": "Создать",
         "deleteCollectionButton": "Удалить",
         "cancelSelectionButton": "Отменить",
-        "startSelectionButton": "Выбрать"
+        "startSelectionButton": "Выбрать",
+        "createCollectionDropdownTitle": "Создать коллекцию",
+        "collectionNameInputPlaceholder": "Имя",
+        "addCollectionButton": "Создать",
+        "collectionNameLengthError": "Название слишком короткое",
+        "collectionAlreadyCreatedError": "Выберите уникальное название"
     },
     "collectionWords": {
         "learnButton": "Учить"
