@@ -34,4 +34,5 @@ button {
 :root {
   --button-color: #4B64F2;
   --button-hovered-color: rgba(75, 100, 242, 0.95);
+  --gray-color: #6c757d;
 }
