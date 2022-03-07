@@ -26,14 +26,13 @@ export default function CollectionsHeader( {collections, setCollections} ) {
             setErrorText(t("collectionNameLengthError"))
             return
         }
-        let response = fetch([SERVER_IP, "api", "createCollection", 
+        let response = await fetch([SERVER_IP, "api", "createCollection", 
                                       authState.token, collectionName].join("/"), 
                                       { method: "POST" })
         if (!response.ok) {
             setErrorText(t("collectionAlreadyCreatedError"))
             return
         }
-        response = await response
         if (response.status === 200) {
             setCollections({
                 collections: [...collections, {name: collectionName, wordCount: 0, username: authState.username}]
