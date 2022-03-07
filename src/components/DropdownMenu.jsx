@@ -1,8 +1,8 @@
 import React from "react"
 
-export function DropdownMenu({ header, body, footer, isHidden }) {
+export function DropdownMenu({ header, body, footer, isHidden, style }) {
     return !isHidden && (
-        <div className="dropdown-menu card">
+        <div className="dropdown-menu card" style={style}>
             <div className="dropdown-header">
                 {header}
             </div>
