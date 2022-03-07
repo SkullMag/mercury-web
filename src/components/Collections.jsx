@@ -10,24 +10,33 @@ import CollectionsHeader from "./CollectionsHeader";
 
 function Collections() {
     const authState = useSelector(state => state.auth);
-    const [state, setState] = useState({
+    // const [state, setState] = useState({
+    //     collections: []
+    // });
+    const [collections, setCollections] = useState({
         collections: []
-    });
+    })
 
     useEffect(() => {
+        async function fetchCollections() {
+            const response = await fetch([SERVER_IP, "api", "getCollections", 
+                                          authState.token, authState.username].join("/"))
+            if (response.status === 200) {
+                setCollections({
+                    collections: await response.json()
+                })
+            }
+        }
         if (authState.username !== "") {
-            fetch(SERVER_IP + "/api/getCollections/" + authState.token + "/" + authState.username)
-            .then(async (response) => setState({
-                collections: await response.json()
-            }));
+            fetchCollections()
         }
     }, [authState.username]);
 
     return (
         <div className="collections">
             <section>
-                <CollectionsHeader />
-                {state.collections.map((elem, i) => (
+                <CollectionsHeader setCollections={setCollections} collections={collections.collections}/>
+                {collections.collections.map((elem, i) => (
                     <Collection key={i} authorUsername={elem.username} wordCount={elem.wordCount} collectionName={elem.name} />
                 ))}
             </section>
