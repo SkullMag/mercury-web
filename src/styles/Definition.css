@@ -13,7 +13,7 @@
 }
 
 .example {
-    color: #6c757d;
+    color: var(--gray-color);
 }
 
 .word {

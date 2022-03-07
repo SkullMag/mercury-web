@@ -61,7 +61,8 @@
     position: absolute;
     padding: 20px;
     box-shadow: black;
-    border: 0.8px solid var(--button-color)
+    border: 0.8px solid var(--button-color);
+    z-index: 50
 }
 
 .dropdown-body {

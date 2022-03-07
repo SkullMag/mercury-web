@@ -15,7 +15,12 @@
         "createCollectionButton": "Create",
         "deleteCollectionButton": "Delete",
         "cancelSelectionButton": "Cancel",
-        "startSelectionButton": "Select"
+        "startSelectionButton": "Select",
+        "createCollectionDropdownTitle": "Create collection",
+        "collectionNameInputPlaceholder": "Name",
+        "addCollectionButton": "Create",
+        "collectionNameLengthError": "Name is too short",
+        "collectionAlreadyCreatedError": "Try unique name"
     },
     "collectionWords": {
         "learnButton": "Learn"
