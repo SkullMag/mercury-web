@@ -14,8 +14,8 @@
     "collections": {
         "createCollectionButton": "Создать",
         "deleteCollectionButton": "Удалить",
-        "cancelSelectionButton": "Отменить",
-        "startSelectionButton": "Изменить",
+        "cancelEditingButton": "Отменить",
+        "startEditingButton": "Изменить",
         "createCollectionDropdownTitle": "Создать коллекцию",
         "collectionNameInputPlaceholder": "Имя",
         "addCollectionButton": "Создать",
