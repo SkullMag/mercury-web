@@ -51,7 +51,7 @@ export default function CollectionsHeader( {setCollections} ) {
                 header={(
                     <>
                         <p>{t("createCollectionDropdownTitle")}</p>
-                        <p className="errorText" style={{"font-size": "16px"}}>{errorText}</p>
+                        {errorText && (<p className="errorText" style={{"font-size": "16px"}}>{errorText}</p>)}
                     </>
                 )} 
                 body={(

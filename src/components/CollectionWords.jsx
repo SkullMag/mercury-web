@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import { SERVER_IP } from "../constants";
 import CollectionWord from "./CollectionWord";
 import "../styles/CollectionWords.css"
-import { useTranslation } from "react-i18next";
 import CollectionWordsHeader from "./CollectionWordsHeader";
 import { CollectionWordsContext } from "../context/CollectionWordsContext";
 
