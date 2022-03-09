@@ -32,7 +32,7 @@ export default function CollectionsHeader( {setCollections} ) {
         }
         if (response.status === 200) {
             setCollections(state => {
-                return {collections: [...state, {name: collectionName, wordCount: 0, username: authState.username}]}
+                return {collections: [...state.collections, {name: collectionName, wordCount: 0, username: authState.username}]}
             })
             setDropdownHidden(hidden => !hidden)
         }
