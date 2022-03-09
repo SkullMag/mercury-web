@@ -27,7 +27,7 @@ export function DropdownItem(props) {
     return (
         <div className={isActive ? "dropdown-item active" : "dropdown-item"} onClick={itemSelected}>
             {props.children}
-            <div className="right-item" style={{"margin-left": "auto", display: isActive ? "flex" : "none"}}>
+            <div className="right-item" style={{marginLeft: "auto", display: isActive ? "flex" : "none"}}>
                 {props.right}
             </div>
         </div>

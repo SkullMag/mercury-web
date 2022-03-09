@@ -6,13 +6,34 @@ import { SERVER_IP } from "../constants";
 import CollectionWord from "./CollectionWord";
 import "../styles/CollectionWords.css"
 import { useTranslation } from "react-i18next";
+import CollectionWordsHeader from "./CollectionWordsHeader";
+import { CollectionWordsContext } from "../context/CollectionWordsContext";
 
 
 function CollectionWords() {
     const { username, collectionName } = useParams();
     const authState = useSelector(state => state.auth);
     const [collectionWords, setCollectionWords] = useState([]);
-    const { t } = useTranslation("collectionWords")
+    const [isEditing, setEditing] = useState(false)
+
+    const toggleEditing = () => {
+        setEditing(edit => !edit)
+    }
+
+    console.log(collectionWords);
+
+    const collectionWordDeleted = async ( word ) => {
+        const response = await fetch([SERVER_IP, "api", "deleteCollectionWord", 
+                                authState.token, collectionName, word].join("/"),
+                                { method: "POST" })
+        console.log(collectionWords[0].word);
+
+        if (response.ok) {
+            setCollectionWords(state => state.filter((w) => w.word !== word))
+        } else {
+            // handler error while deleting collection word
+        }
+    }
 
     useEffect(() => {
         if (authState.username !== "") {
@@ -24,16 +45,17 @@ function CollectionWords() {
     return (
         <div className="collectionWords">
             <section>
-                <div className="card collectionHeader">
-                    <p className="collectionTitle">{collectionName}</p>
-                    <button className="learnWordsButton">{t("learnButton")}</button>
-                </div>
-                <div className="card colWords">
-                    {collectionWords && collectionWords.sort((a, b) => a.word > b.word).map((elem, i) => (
-                        <CollectionWord key={i} jsonData={elem} style={{
-                            borderBottom: i === collectionWords.length - 1 ? "none" : "1px solid lightgray"
-                        }} />))}
-                </div>
+                <CollectionWordsContext.Provider value={{ isEditing, toggleEditing }}>
+                    <CollectionWordsHeader collectionName={collectionName} isEditing={false} />
+                    <div className="card colWords">
+                        {collectionWords && collectionWords.sort((a, b) => a.word > b.word).map((elem, i) => (
+                            <CollectionWord key={i} jsonData={elem} style={{
+                                borderBottom: i === collectionWords.length - 1 ? "none" : "1px solid lightgray",
+                                cursor: isEditing ? "auto" : "pointer",
+                                paddingLeft: isEditing ? "10px" : "20px"
+                            }} onDelete={collectionWordDeleted} />))}
+                    </div>
+                </CollectionWordsContext.Provider>
             </section>
         </div>
     );

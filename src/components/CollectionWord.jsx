@@ -1,11 +1,21 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { CollectionWordsContext } from "../context/CollectionWordsContext";
+import { ChevronIcon } from "../icons/ChevronIcon";
 import "../styles/CollectionWord.css"
 import DefinitionsView from "./DefinitionsView";
 
 
-function CollectionWord({ style, jsonData }) {
+function CollectionWord({ style, jsonData, onDelete }) {
     const [isOpen, setOpen] = React.useState(false)
-    const handleWordCardClick = () => setOpen(prev => !prev)
+    const { t } = useTranslation("collections")
+    const { isEditing } = React.useContext(CollectionWordsContext)
+
+    const handleWordCardClick = () => {
+        if (!isEditing) {
+            setOpen(prev => !prev)
+        }
+    }
 
     const chevronStyle = {
         transition: "transform 0.3s",
@@ -20,10 +30,17 @@ function CollectionWord({ style, jsonData }) {
 
     return (<>
         <div className="collectionWordCard" style={style} onClick={handleWordCardClick}>
+        {isEditing && (
+            <button className="deleteCollectionButton" style={{
+                    marginLeft: "0",
+                    marginRight: "10px"
+                }}
+                onClick={() => onDelete(jsonData.word)}>
+                {t("deleteCollectionButton")}
+            </button>
+        )}
             <p className="collectionWord">{jsonData.word}</p>
-            <svg className="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style={chevronStyle}>
-                <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-            </svg>
+            <ChevronIcon width="20" height="20" fill="currentColor" style={chevronStyle} />
         </div>
         {isOpen && <DefinitionsView json_data={jsonData} style={definitionsViewStyle}/>}
         </>
