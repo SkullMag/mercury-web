@@ -7,7 +7,7 @@ import { CollectionsContext } from "../context/CollectionsContext";
 import { useTranslation } from "react-i18next";
 
 
-function Collection({ authorUsername, collectionName, wordCount }) {
+function Collection({ authorUsername, collectionName, wordCount, onDelete }) {
     const { t } = useTranslation("collections")
     const navigate = useNavigate();
     const authState = useSelector(state => state.auth)
@@ -21,7 +21,7 @@ function Collection({ authorUsername, collectionName, wordCount }) {
         <div style={{display: "flex"}}>
             {isEditing && (
                 <div className="editButtons">
-                    <button className="deleteCurrentCollection">{t("deleteCollectionButton")}</button>
+                    <button className="deleteCurrentCollection" onClick={() => onDelete(collectionName)}>{t("deleteCollectionButton")}</button>
                     {/* <button className="renameCurrentCollection">Rename</button> */}
                 </div>
             )}

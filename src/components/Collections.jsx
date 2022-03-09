@@ -19,6 +19,19 @@ function Collections() {
         setEditing(edit => !edit)
     }
 
+    const onCollectionDelete = async ( name ) => {
+        const response = await fetch([SERVER_IP, "api", "deleteCollection", 
+                                authState.token, name].join("/"),
+                                { method: "POST" })
+        if (response.ok) {
+            setCollections({
+                collections: collections.collections.filter(col => col.name !== name)
+            })
+        } else {
+            // handle error while deleting collection
+        }
+    }
+
     useEffect(() => {
         async function fetchCollections() {
             const response = await fetch([SERVER_IP, "api", "getCollections", 
@@ -40,7 +53,9 @@ function Collections() {
                     <CollectionsContext.Provider value={{ isEditing, toggleEditing }}>
                         <CollectionsHeader setCollections={setCollections}/>
                         {collections.collections.map((elem, i) => (
-                            <Collection key={i} authorUsername={elem.username} wordCount={elem.wordCount} collectionName={elem.name} />
+                            <Collection key={i} authorUsername={elem.username} 
+                                        wordCount={elem.wordCount} collectionName={elem.name}
+                                        onDelete={onCollectionDelete} />
                         ))}
                     </CollectionsContext.Provider>
                
