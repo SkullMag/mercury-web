@@ -5,6 +5,7 @@ import { TINYGRAPH_IP } from "../constants";
 import { useSelector } from "react-redux";
 import { CollectionsContext } from "../context/CollectionsContext";
 import { useTranslation } from "react-i18next";
+import { ChevronIcon } from "../icons/ChevronIcon";
 
 
 function Collection({ authorUsername, collectionName, wordCount, onDelete }) {
@@ -33,9 +34,7 @@ function Collection({ authorUsername, collectionName, wordCount, onDelete }) {
                     <p className="wordCount">
                         {wordCount === 1 ? wordCount + " word" : wordCount + " words"}
                     </p>
-                    <svg className="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                        <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                    </svg>
+                    <ChevronIcon width="20" height="20" fill="currentColor" />
                     
                 </div>
                 <div className="card collectionFeatures">
