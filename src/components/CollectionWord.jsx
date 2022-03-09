@@ -1,12 +1,21 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { CollectionWordsContext } from "../context/CollectionWordsContext";
 import { ChevronIcon } from "../icons/ChevronIcon";
 import "../styles/CollectionWord.css"
 import DefinitionsView from "./DefinitionsView";
 
 
-function CollectionWord({ style, jsonData }) {
+function CollectionWord({ style, jsonData, onDelete }) {
     const [isOpen, setOpen] = React.useState(false)
-    const handleWordCardClick = () => setOpen(prev => !prev)
+    const { t } = useTranslation("collections")
+    const { isEditing } = React.useContext(CollectionWordsContext)
+
+    const handleWordCardClick = () => {
+        if (!isEditing) {
+            setOpen(prev => !prev)
+        }
+    }
 
     const chevronStyle = {
         transition: "transform 0.3s",
@@ -21,8 +30,17 @@ function CollectionWord({ style, jsonData }) {
 
     return (<>
         <div className="collectionWordCard" style={style} onClick={handleWordCardClick}>
+        {isEditing && (
+            <button className="deleteCollectionButton" style={{
+                    marginLeft: "0",
+                    marginRight: "10px"
+                }}
+                onClick={() => onDelete(jsonData.word)}>
+                {t("deleteCollectionButton")}
+            </button>
+        )}
             <p className="collectionWord">{jsonData.word}</p>
-            <ChevronIcon width="20" height="20" fill="currentColor" />
+            <ChevronIcon width="20" height="20" fill="currentColor" style={chevronStyle} />
         </div>
         {isOpen && <DefinitionsView json_data={jsonData} style={definitionsViewStyle}/>}
         </>

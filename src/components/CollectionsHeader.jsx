@@ -44,7 +44,7 @@ export default function CollectionsHeader( {setCollections} ) {
                 {t("createCollectionButton")}
             </button>
             <button className="selectCollectionButton" onClick={toggleEditing}>
-                {isEditing ? t("cancelSelectionButton") : t("startSelectionButton")}
+                {isEditing ? t("cancelEditingButton") : t("startEditingButton")}
             </button>
             <DropdownMenu 
                 style={{transform: "translateX(0) translateY(120px)", "text-align": "center"}} 
@@ -55,7 +55,8 @@ export default function CollectionsHeader( {setCollections} ) {
                     </>
                 )} 
                 body={(
-                    <input type="text" className="collectionNameInput" placeholder={t("collectionNameInputPlaceholder")} value={collectionName} onChange={collectionNameChanged} />
+                    <input type="text" className="collectionNameInput" placeholder={t("collectionNameInputPlaceholder")} 
+                           value={collectionName} onChange={collectionNameChanged} />
                 )} 
                 footer={(
                     <button className="addCollectionButton" onClick={createCollection}>
