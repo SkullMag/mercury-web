@@ -35,7 +35,7 @@ function Collections() {
     return (
         <div className="collections">
             <section>
-                <CollectionsHeader setCollections={setCollections} collections={collections.collections}/>
+                <CollectionsHeader setCollections={setCollections}/>
                 {collections.collections.map((elem, i) => (
                     <Collection key={i} authorUsername={elem.username} wordCount={elem.wordCount} collectionName={elem.name} />
                 ))}

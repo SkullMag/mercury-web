@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 function Header(props) {
     const location = useLocation();
-    const [t, ] = useTranslation("navbar")
+    const { t } = useTranslation("navbar")
     return (
         <nav className="Header">
             <img alt="logo" src={logo} height="32px" id="logo" />

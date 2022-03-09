@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 
 function DefinitionsView(props) {
-    const [t, ] = useTranslation("dictionary")
+    const { t } = useTranslation("dictionary")
 
     let definitions = [];
     let isFound = !("error" in props.json_data);

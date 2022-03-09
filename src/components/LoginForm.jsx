@@ -14,7 +14,7 @@ function LoginForm(props) {
     const store = useStore();
     const navigate = useNavigate();
     const [errorText, setErrorText] = useState("");
-    const [t, ] = useTranslation("auth")
+    const { t } = useTranslation("auth")
 
     const [state, setState] = useState({
         username: "",
