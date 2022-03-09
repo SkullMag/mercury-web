@@ -2,20 +2,17 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { SERVER_IP } from "../constants"
+import { CollectionsContext } from "../context/CollectionsContext"
 import "../styles/CollectionsHeader.css"
-import { DropdownMenu, DropdownItem } from "./DropdownMenu"
+import { DropdownMenu } from "./DropdownMenu"
 
-export default function CollectionsHeader( {collections, setCollections} ) {
-    const [isSelecting, setSelecting] = React.useState(false)
-    const [t, ] = useTranslation("collections")
+export default function CollectionsHeader( {setCollections} ) {
+    const { t } = useTranslation("collections")
     const [dropdownHidden, setDropdownHidden] = React.useState(true)
-    const authState = useSelector(state => state.auth)
     const [collectionName, setCollectionName] = React.useState("")
     const [errorText, setErrorText] = React.useState("")
-
-    function selectButtonClicked() {
-        setSelecting(select => !select)
-    }
+    const authState = useSelector(state => state.auth)
+    const { isEditing, toggleEditing } = React.useContext(CollectionsContext)
 
     function collectionNameChanged(event) {
         setCollectionName(event.target.value)
@@ -34,8 +31,8 @@ export default function CollectionsHeader( {collections, setCollections} ) {
             return
         }
         if (response.status === 200) {
-            setCollections({
-                collections: [...collections, {name: collectionName, wordCount: 0, username: authState.username}]
+            setCollections(state => {
+                return {collections: [...state, {name: collectionName, wordCount: 0, username: authState.username}]}
             })
             setDropdownHidden(hidden => !hidden)
         }
@@ -46,12 +43,9 @@ export default function CollectionsHeader( {collections, setCollections} ) {
             <button className="createCollectionButton" onClick={() => setDropdownHidden(hidden => !hidden)}>
                 {t("createCollectionButton")}
             </button>
-            <button className="selectCollectionButton" onClick={selectButtonClicked}>
-                {isSelecting ? t("cancelSelectionButton") : t("startSelectionButton")}
+            <button className="selectCollectionButton" onClick={toggleEditing}>
+                {isEditing ? t("cancelSelectionButton") : t("startSelectionButton")}
             </button>
-            {isSelecting && (<button className="deleteCollectionButton">
-                {t("deleteCollectionButton")}
-            </button>)}
             <DropdownMenu 
                 style={{transform: "translateX(0) translateY(120px)", "text-align": "center"}} 
                 header={(

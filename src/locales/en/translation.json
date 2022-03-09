@@ -15,7 +15,7 @@
         "createCollectionButton": "Create",
         "deleteCollectionButton": "Delete",
         "cancelSelectionButton": "Cancel",
-        "startSelectionButton": "Select",
+        "startSelectionButton": "Edit",
         "createCollectionDropdownTitle": "Create collection",
         "collectionNameInputPlaceholder": "Name",
         "addCollectionButton": "Create",

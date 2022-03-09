@@ -13,7 +13,7 @@ export default function AddToCollectionButton({ word }) {
     const [dropdownHidden, setDropdownHidden] = React.useState(true)
     const authState = useSelector(state => state.auth)
     const [collections, setCollections] = React.useState([])
-    const [t, ] = useTranslation("dictionary")
+    const { t } = useTranslation("dictionary")
     let selectedCollections = new Set()
 
     useEffect(() => {

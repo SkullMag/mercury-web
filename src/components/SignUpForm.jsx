@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 function SingUpForm() {
     const navigate = useNavigate();
-    const [t, ] = useTranslation("auth")
+    const { t } = useTranslation("auth")
     const [state, setState] = useState({
         email: "",
         password: "",

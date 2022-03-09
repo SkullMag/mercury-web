@@ -72,3 +72,37 @@
     border-radius: 50px;
     z-index: 50;
 }
+
+.editButtons { 
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.deleteCurrentCollection, .renameCurrentCollection {
+    margin-right: 10px;
+    cursor: pointer;
+    height: 100%;
+    width: 100px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+}
+
+.deleteCurrentCollection {
+    background: rgba(255, 0, 0, 0.9);
+}
+
+.deleteCurrentCollection:hover {
+    background: rgba(255, 0, 0, 0.8);
+}
+
+/* .renameCurrentCollection {
+    background: rgba(255,165,0, 1);
+}
+
+.renameCurrentCollection:hover {
+    background: rgba(255,165,0, 0.9);
+} */
