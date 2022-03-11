@@ -42,5 +42,11 @@
         "signInTitle": "Войти в аккаунт",
         "newToMercury": "Нет аккаунта?",
         "logoutButton": "Выйти"
+    },
+    "learning": {
+        "rememberButton": "Помню",
+        "forgotButton": "Забыл",
+        "showDefinition": "Показать",
+        "hideDefinition": "Скрыть"
     }
 }

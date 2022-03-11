@@ -42,5 +42,11 @@
         "signInTitle": "Sign In",
         "newToMercury": "New to mercury?",
         "logoutButton": "Log out"
+    },
+    "learning": {
+        "rememberButton": "Remember",
+        "forgotButton": "Forgot",
+        "showDefinition": "Show",
+        "hideDefinition": "Hide"
     }
 }

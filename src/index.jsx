@@ -20,6 +20,7 @@ import Collections from "./components/Collections";
 import CollectionWords from './components/CollectionWords';
 import { Suspense } from 'react';
 import './i18n'
+import Learning from './components/Learning';
 
 store.dispatch(fetchUser);
 
@@ -37,6 +38,7 @@ function Index() {
                         <Route path="/verification" element={<VerificationCodePage />} />
                         <Route path="/collections/:username/:collectionName" element={<CollectionWords />} />
                         <Route path="/collections" element={<Collections />} />
+                        <Route path="/learn/:authorUsername/:collectionName" element={<Learning />} />
                 </Routes>
                 </BrowserRouter>
             </Provider>
