@@ -19,13 +19,10 @@ function CollectionWords() {
         setEditing(edit => !edit)
     }
 
-    console.log(collectionWords);
-
     const collectionWordDeleted = async ( word ) => {
         const response = await fetch([SERVER_IP, "api", "deleteCollectionWord", 
                                 authState.token, collectionName, word].join("/"),
                                 { method: "POST" })
-        console.log(collectionWords[0].word);
 
         if (response.ok) {
             setCollectionWords(state => state.filter((w) => w.word !== word))
@@ -44,8 +41,8 @@ function CollectionWords() {
     return (
         <div className="collectionWords">
             <section>
-                <CollectionWordsContext.Provider value={{ isEditing, toggleEditing }}>
-                    <CollectionWordsHeader collectionName={collectionName} isEditing={false} />
+                <CollectionWordsContext.Provider value={{ isEditing, toggleEditing, collectionWords }}>
+                    <CollectionWordsHeader authorUsername={username} collectionName={collectionName} isEditing={false} />
                     <div className="card colWords">
                         {collectionWords && collectionWords.sort((a, b) => a.word > b.word).map((elem, i) => (
                             <CollectionWord key={i} jsonData={elem} style={{
