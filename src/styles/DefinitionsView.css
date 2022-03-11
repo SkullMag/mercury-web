@@ -13,28 +13,9 @@
     height: 100%;
 }
 
-.pronounceButton {
-    background: #4B64F2;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: none;
-
-    border-radius: 10px;
-    color: white;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    height: 100%;
-    width: 38px;
-
-    text-align: center;
-
-    cursor: pointer;
-}
-
 .addToCollection {   
     text-align: center;
-    background: #4B64F2;
+    background: var(--button-color);
 
     border-radius: 10px;
     color: white;
@@ -42,7 +23,10 @@
     width: 38px;
     margin-left: 10px;
     cursor: pointer;
- 
+}
+
+.addToCollection:hover {
+    background: var(--button-hovered-color);
 }
 
 .wordView {

@@ -9,7 +9,7 @@
 
 .createCollectionButton, .selectCollectionButton, .deleteCollectionButton, .addCollectionButton {
     height: 40px;
-    width: 100px;
+    min-width: 100px;
     background: var(--button-color);
     border: none;
     border-radius: 16px;
