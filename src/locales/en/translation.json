@@ -47,6 +47,9 @@
         "rememberButton": "Remember",
         "forgotButton": "Forgot",
         "showDefinition": "Show",
-        "hideDefinition": "Hide"
+        "hideDefinition": "Hide",
+        "youRemember": "You remember",
+        "ofWords": "of words",
+        "goBack": "Go back"
     }
 }

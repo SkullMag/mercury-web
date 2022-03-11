@@ -47,6 +47,9 @@
         "rememberButton": "Помню",
         "forgotButton": "Забыл",
         "showDefinition": "Показать",
-        "hideDefinition": "Скрыть"
+        "hideDefinition": "Скрыть",
+        "youRemember": "Вы помните",
+        "ofWords": "из слов",
+        "goBack": "Вернуться назад"
     }
 }
