@@ -14,7 +14,7 @@ export default function Dictionary() {
         <div className="Definitions">
             <section>
                 <WordInputForm setParentState={setState} parentState={state}/>
-                {state.json_data !== null ? <DefinitionsView json_data={state.json_data} addToCollectionButton={true} className="card" style={{marginBottom: "200px"}} /> : null}
+                {state.json_data !== null ? <DefinitionsView json_data={state.json_data} addToCollectionButton={true} definitionsViewClassName="card" style={{marginBottom: "200px"}} /> : null}
             </section>
         </div>
     );
