@@ -6,7 +6,7 @@ import { SERVER_IP } from "../constants"
 import LearningCard from "./LearningCard"
 
 export default function Learning() {
-    const { authorUsername, collectionName } = useParams()
+    const { collectionName } = useParams()
     const location = useLocation()
     const wordsToLearn = location.state
     const authState = useSelector(state => state.auth)
