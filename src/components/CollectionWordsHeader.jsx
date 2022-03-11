@@ -11,7 +11,7 @@ export default function CollectionWordsHeader({ authorUsername, collectionName }
 
     function openLearningWindow() {
         navigate("/learn/" + authorUsername + "/" + collectionName, {
-            state: collectionWords.sort((a, b) => a.priority - b.priority).slice(0, 20)
+            state: collectionWords.slice(0, 20)
         })
     }
 
