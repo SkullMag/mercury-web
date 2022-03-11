@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { useLocation, useParams } from "react-router-dom"
 import { SERVER_IP } from "../constants"
+import FinishLearningCard from "./FinishLearningCard"
 import LearningCard from "./LearningCard"
 
 export default function Learning() {
@@ -34,11 +35,13 @@ export default function Learning() {
 
     return (
         <section>
-            {wordsToLearn.length > 0 && currentIndex < wordsToLearn.length && <LearningCard currentWordIndex={currentIndex + 1} 
-                                                                                numberOfWords={wordsToLearn.length} 
-                                                                                word={wordsToLearn[currentIndex]} 
-                                                                                moveCurrentWordIndex={moveCurrentWordIndex}
-                                                                                wordStatusChanged={changeWordStatus}/> }
+            {wordsToLearn.length > 0 && currentIndex < wordsToLearn.length ?
+             <LearningCard currentWordIndex={currentIndex + 1} 
+                            numberOfWords={wordsToLearn.length} 
+                            word={wordsToLearn[currentIndex]} 
+                            moveCurrentWordIndex={moveCurrentWordIndex}
+                            wordStatusChanged={changeWordStatus}/> :
+                <FinishLearningCard wordsStatus={wordsStatus} />}
             
         </section>
     )
