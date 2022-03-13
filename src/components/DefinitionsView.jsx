@@ -1,6 +1,5 @@
 import "../styles/DefinitionsView.css";
 import Definition from "./Definition.jsx"
-import { pronounceWord } from "../utils.js";
 import React from "react";
 import AddToCollectionButton from "./AddToCollectionButton"
 import { useTranslation } from "react-i18next";
@@ -27,7 +26,7 @@ function DefinitionsView({ json_data, definitionsViewClassName, showWord=true, a
                 {showWord && <div className="wordView">
                     <p className="word">{json_data.word}</p>
                     { json_data.phonetics !== "" ?
-                        <PronounceButton width="24" height="24" fill="white" />
+                        <PronounceButton width="24" height="24" fill="white" phonetics={json_data.phonetics} />
                     : null}
                     { addToCollectionButton ? <AddToCollectionButton word={json_data.word} /> : null}
                 </div>}
