@@ -9,12 +9,16 @@
     font-size: 20px;
     padding-left: 20px;
     padding-right: 10px;
-    background: rgba(75, 100, 242, 0.8);
-    color: white;
+    background-color: rgba(75, 100, 242, 0.2);
+    color: var(--button-color);
     margin-top: 10px;
     cursor: pointer;
 
     transition: background-color 0.3s;
+}
+
+.dropdown-item:hover, .dropdown-item.active{
+    background-color: rgba(75, 100, 242, 0.15);
 }
 
 .right-item {
@@ -22,10 +26,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.dropdown-item:hover, .dropdown-item.active {
-    background: rgba(75, 100, 242, 0.9);
 }
 
 .addToCollectionsButton, .cancelChoiceButton {
