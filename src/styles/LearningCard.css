@@ -26,12 +26,12 @@
     background: var(--button-hovered-color);
 }
 
-.forgotButton {
+.forgotButton, .showDefinitionButton {
     background-color: rgba(75, 100, 242, 0.2);
     color: var(--button-color)
 }
 
-.forgotButton:hover {
+.forgotButton:hover, .showDefinitionButton:hover{
     background-color: rgba(75, 100, 242, 0.15);
 }
 
