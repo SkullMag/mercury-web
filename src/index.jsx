@@ -3,7 +3,8 @@ import { render } from "react-dom";
 import { 
     BrowserRouter,
     Routes,
-    Route
+    Route,
+    Navigate
 } from "react-router-dom";
 import React from 'react';
 import store from "./store";
@@ -31,6 +32,7 @@ function Index() {
                 <BrowserRouter>
                     <Header />
                     <Routes>
+                        <Route path="/" element={<Navigate to="/dictionary" />} />
                         <Route path="/dictionary" element={<Dictionary />} />
                         <Route path="/account" element={<ProfilePage />} />
                         <Route path="/login" element={<LoginForm/>} />
