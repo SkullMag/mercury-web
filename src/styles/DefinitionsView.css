@@ -3,6 +3,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 10px;
+    z-index: 2;
 }
 
 .word {
