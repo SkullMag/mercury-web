@@ -1,13 +1,13 @@
 #partOfSpeech, #exampleHead {
-    font-weight: bold;
+    font-weight: 600;
     color: green;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 #definition {
     margin: 0;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 16px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -17,6 +17,7 @@
 }
 
 .word {
+    font-size: 22px;
     text-transform: capitalize;
 }
 

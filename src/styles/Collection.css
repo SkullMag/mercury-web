@@ -15,8 +15,8 @@
 }
 
 .collectionFeatures {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     z-index: 2;
     border-radius: 0 0 16px 16px;
     box-shadow: none;
@@ -24,13 +24,14 @@
     background: rgba(255, 255, 255, 1);
     display: flex;
     align-items: center;
+    font-size: 14px;
     /* background: rgba(75, 100, 242, 0.85); */
 }
 
 .collectionName {
     margin: 0;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
     text-transform: capitalize;
 }
 
@@ -66,12 +67,12 @@
     transition: width 0.3s, height 0.3s, border-radius 0.3s;
 }
 
-.profilePicture:hover {
+/* .profilePicture:hover {
     width: 100px;
     height: 100px;
     border-radius: 50px;
     z-index: 50;
-}
+} */
 
 .editButtons { 
     margin-bottom: 20px;

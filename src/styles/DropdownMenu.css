@@ -1,12 +1,12 @@
 .dropdown-item {
     width: 260px;
-    height: 50px;
+    height: 40px;
     border-radius: 16px;
     display: flex;
     justify-content: left;
     align-items: center;
     color: black;
-    font-size: 20px;
+    font-size: 16px;
     padding-left: 20px;
     padding-right: 10px;
     background-color: rgba(75, 100, 242, 0.2);
@@ -60,7 +60,6 @@
 
 .dropdown-menu {
     background: rgba( 255, 255, 255, 0.8 );
-    transform: translateX(20px) translateY(50px);
     position: absolute;
     padding: 20px;
     box-shadow: black;
