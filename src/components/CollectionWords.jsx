@@ -10,9 +10,9 @@ import { CollectionWordsContext } from "../context/CollectionWordsContext";
 
 
 function CollectionWords() {
-    const { username, collectionName } = useParams();
-    const authState = useSelector(state => state.auth);
-    const [collectionWords, setCollectionWords] = useState([]);
+    const { username, collectionName } = useParams()
+    const authState = useSelector(state => state.auth)
+    const [collectionWords, setCollectionWords] = useState([])
     const [isEditing, setEditing] = useState(false)
 
     const toggleEditing = () => {
