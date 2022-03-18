@@ -11,10 +11,13 @@
     padding-right: 10px;
     background-color: rgba(75, 100, 242, 0.2);
     color: var(--button-color);
-    margin-top: 10px;
     cursor: pointer;
 
     transition: background-color 0.3s;
+}
+
+.dropdown-item + .dropdown-item {
+    margin-top: 10px;
 }
 
 .dropdown-item:hover, .dropdown-item.active{
