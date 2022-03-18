@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { SERVER_IP } from "../../constants";
 
 
-const initialState = {
+let initialState = {
     username: "",
     fullname: "",
     profileBio: "",
@@ -25,7 +25,7 @@ export const slice = createSlice({
         },
         logoutAction: () => {
             localStorage.removeItem("token");
-            return initialState
+            return {...initialState, token: ""  }
         }
     }
 });
