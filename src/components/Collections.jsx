@@ -6,6 +6,7 @@ import Collection from "./Collection"
 import { useState } from "react";
 import CollectionsHeader from "./CollectionsHeader";
 import { CollectionsContext } from "../context/CollectionsContext";
+import { Navigate } from "react-router";
 
 
 function Collections() {
@@ -46,6 +47,10 @@ function Collections() {
             fetchCollections()
         }
     }, [authState.username]);
+
+    if (authState.token === "") {
+        return (<Navigate to="/login" />);
+    }
 
     return (
         <div className="collections">
