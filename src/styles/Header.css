@@ -9,7 +9,7 @@
     top: 0;
     z-index: 5;
     overflow: hidden;
-    /* justify-content: center;  */
+    transition: height 600ms;
 }
 
 .titleName {
@@ -34,7 +34,7 @@
     opacity: 1;
 }
 
-.Header .hamburger {
+.Header .menu {
     display: none;
 }
 
@@ -42,12 +42,12 @@
     /* .Header a {
         display: none;
     } */
-    .Header .hamburger {
+    .Header .menu {
         margin-left: auto;
         background-color: rgba(0, 0, 0, 0);
         border: none;
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         cursor: pointer;
     }
 
@@ -58,10 +58,10 @@
 }
 
 @media screen and (max-width: 600px) {
-    .Header.responsive {
+    .Header.expanded {
         position: relative;
         flex-direction: column;
-        align-items:flex-start;
+        align-items: flex-start;
         height: 190px;
     }
     .Header.responsive .linksToPages {
@@ -80,10 +80,10 @@
         height: 44px;
     }
 
-    .Header.responsive .hamburger {
+    .Header.responsive .menu {
         position: absolute;
         right: 20px;
-        top: 14px;
+        top: 15px;
     }
 
     .Header.responsive .logoTitle {
