@@ -15,7 +15,7 @@ function Header() {
     function toggleResponsive() {
         setExpanded(!isExpanded)
         if (isResponsive) {
-            setTimeout(() => setResponsive(!isResponsive), 600)
+            setTimeout(() => setResponsive(!isResponsive), 400)
         } else {
             setResponsive(!isResponsive)
         }
