@@ -9,6 +9,7 @@ export default function LearningCard({ word, currentWordIndex, moveCurrentWordIn
     const [definitionShowing, setDefinitionShowing] = React.useState(false)
 
     function nextWord(e) {
+        setDefinitionShowing(false)
         wordStatusChanged(word, e.target.className === "rememberButton")
         moveCurrentWordIndex()
     }
