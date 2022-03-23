@@ -40,7 +40,7 @@ function CollectionWord({ style, jsonData, onDelete }) {
             </button>
         )}
             <p className="collectionWord">{jsonData.word}</p>
-            <ChevronIcon width="20" height="20" fill="currentColor" style={chevronStyle} />
+            <ChevronIcon width="15" height="15" fill="currentColor" style={chevronStyle} />
         </div>
         {isOpen && <DefinitionsView json_data={jsonData} style={definitionsViewStyle}/>}
         </>
