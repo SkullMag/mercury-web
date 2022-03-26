@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { capitalize } from "../utils";
 import { CheckIcon } from "../icons/CheckIcon";
 import { useTranslation } from "react-i18next";
+import { Navigate } from "react-router";
 
 export default function AddToCollectionButton({ word }) {
     const [dropdownHidden, setDropdownHidden] = React.useState(true)
@@ -38,6 +39,10 @@ export default function AddToCollectionButton({ word }) {
                          name.toLowerCase(), word].join("/"), { method: "POST" })
         })
         setDropdownHidden(hidden => !hidden)
+    }
+
+    if (authState.token === "") {
+        return (<Navigate to="/login" />)
     }
     
     return (
