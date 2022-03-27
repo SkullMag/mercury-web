@@ -1,5 +1,5 @@
 .collectionWordsHeaderButtons {
-    margin-left: auto;
+    margin-bottom: 20px;
 }
 
 .collectionHeader {
@@ -8,6 +8,7 @@
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+    position: relative;
     
     height: 40px;
     line-height: 40px;
@@ -23,8 +24,8 @@
     font-size: 16px;
     color: white;
     cursor: pointer;
-    font-weight: 600; 
-    margin-left: 10px;  
+    font-weight: 600;  
+    z-index: 99 !important;
 }
 
 .collectionTitle {
@@ -32,5 +33,5 @@
     font-weight: bold;
     height: 100%;
     text-transform: capitalize;
-
+    z-index: 2;
 }

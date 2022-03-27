@@ -16,14 +16,16 @@ export default function CollectionWordsHeader({ authorUsername, collectionName }
     }
 
     return (
+        <>
         <div className="card collectionHeader">
             <p className="collectionTitle">{collectionName}</p>
-            <div className="collectionWordsHeaderButtons">
-                <button className="selectCollectionButton" onClick={toggleEditing}>
-                    {isEditing ? t("cancelEditingButton", {ns: "collections"}) : t("startEditingButton", {ns: "collections"})}
-                </button>
-                <button className="learnWordsButton" onClick={openLearningWindow}>{t("learnButton")}</button>
-            </div>
         </div>
+        <div className="collectionWordsHeaderButtons">
+        <button className="learnWordsButton" onClick={openLearningWindow}>{t("learnButton")}</button>
+            <button className="selectCollectionButton" onClick={toggleEditing}>
+                {isEditing ? t("cancelEditingButton", {ns: "collections"}) : t("startEditingButton", {ns: "collections"})}
+            </button>
+        </div>
+        </>
     )
 }
