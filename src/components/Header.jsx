@@ -32,7 +32,7 @@ function Header() {
             <div className="linksToPages">
                 <Link className={location.pathname === "/dictionary" ? "pageLink active" : "pageLink"} to="/dictionary">{t("dictionary")}</Link>
                 <Link className={location.pathname === "/collections" ? "pageLink active" : "pageLink"} to="/collections">{t("collections")}</Link>
-                <Link className={location.pathname === "/account/" + authState.username ? "pageLink active" : "pageLink"} to="/account">{t("account")}</Link>
+                <Link className={location.pathname === "/account/" ? "pageLink active" : "pageLink"} to={"/account/" + authState.username}>{t("account")}</Link>
             </div>
             
             <HamburgerButton toggleResponsive={toggleResponsive}/>
