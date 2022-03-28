@@ -4,6 +4,7 @@ import "../styles/Header.css";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import HamburgerButton from "./HamburgerButton";
+import { useSelector } from "react-redux";
 
 
 function Header() {
@@ -11,6 +12,7 @@ function Header() {
     const { t } = useTranslation("navbar")
     const [isResponsive, setResponsive] = React.useState(false)
     const [isExpanded, setExpanded] = React.useState(false)
+    const authState = useSelector(state => state.auth)
 
     function toggleResponsive() {
         setExpanded(!isExpanded)
@@ -30,7 +32,7 @@ function Header() {
             <div className="linksToPages">
                 <Link className={location.pathname === "/dictionary" ? "pageLink active" : "pageLink"} to="/dictionary">{t("dictionary")}</Link>
                 <Link className={location.pathname === "/collections" ? "pageLink active" : "pageLink"} to="/collections">{t("collections")}</Link>
-                <Link className={location.pathname === "/account" ? "pageLink active" : "pageLink"} to="/account">{t("account")}</Link>
+                <Link className={location.pathname === "/account/" + authState.username ? "pageLink active" : "pageLink"} to="/account">{t("account")}</Link>
             </div>
             
             <HamburgerButton toggleResponsive={toggleResponsive}/>

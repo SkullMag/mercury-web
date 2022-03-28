@@ -44,7 +44,7 @@ function LoginForm(props) {
         if (response.status === 200) {
             localStorage.setItem("token", json_data.token);
             store.dispatch(loginAction(json_data));
-            navigate("/account");
+            navigate("/account/" + state.username);
         } else {
             setErrorText(json_data.error)
         }
