@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { capitalize } from "../utils";
 import { CheckIcon } from "../icons/CheckIcon";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 
 export default function AddToCollectionButton({ word }) {
     const [dropdownHidden, setDropdownHidden] = React.useState(true)
@@ -15,6 +16,7 @@ export default function AddToCollectionButton({ word }) {
     const [collections, setCollections] = React.useState([])
     const { t } = useTranslation("dictionary")
     let selectedCollections = new Set()
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData() {
@@ -38,6 +40,10 @@ export default function AddToCollectionButton({ word }) {
                          name.toLowerCase(), word].join("/"), { method: "POST" })
         })
         setDropdownHidden(hidden => !hidden)
+    }
+
+    if (authState.token === "") {
+        navigate("/login")
     }
     
     return (
