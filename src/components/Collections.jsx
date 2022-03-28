@@ -69,7 +69,12 @@ function Collections() {
         <div className="collections">
             <section>
                     <CollectionsContext.Provider value={{ isEditing, toggleEditing, setPublic }}>
-                       
+                        <center>
+                            <div className="">
+                                <button className={isPublic ? "localCollections" : "localCollections active"} onClick={() => setPublic(false)}>{t("localCollections")}</button>
+                                <button className={isPublic ? "publicCollections active" : "publicCollections"} onClick={() => setPublic(true)}>{t("publicCollections")}</button>
+                            </div>
+                        </center>
                         
                         <CollectionsHeader setCollections={setCollections} isPublic={isPublic}/>
                         {(isPublic ? publicCollections : collections).collections.map((elem, i) => (
