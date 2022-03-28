@@ -20,7 +20,9 @@
         "collectionNameInputPlaceholder": "Имя",
         "addCollectionButton": "Создать",
         "collectionNameLengthError": "Название слишком короткое",
-        "collectionAlreadyCreatedError": "Выберите уникальное название"
+        "collectionAlreadyCreatedError": "Выберите уникальное название",
+        "localCollections": "Мои",
+        "publicCollections": "Публичные"
     },
     "collectionWords": {
         "learnButton": "Учить"

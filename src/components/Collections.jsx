@@ -7,6 +7,8 @@ import { useState } from "react";
 import CollectionsHeader from "./CollectionsHeader";
 import { CollectionsContext } from "../context/CollectionsContext";
 import { Navigate } from "react-router";
+import "../styles/Collections.css"
+import { useTranslation } from "react-i18next";
 
 
 function Collections() {
@@ -14,7 +16,12 @@ function Collections() {
     const [collections, setCollections] = useState({
         collections: []
     })
+    const [isPublic, setPublic] = useState(false)
+    const [publicCollections, setPublicCollections] = useState({
+        collections: []
+    })
     const [isEditing, setEditing] = useState(false)
+    const { t } = useTranslation("collections")
 
     const toggleEditing = () => {
         setEditing(edit => !edit)
@@ -35,11 +42,17 @@ function Collections() {
 
     useEffect(() => {
         async function fetchCollections() {
-            const response = await fetch([SERVER_IP, "api", "getCollections", 
+            const localResponse = await fetch([SERVER_IP, "api", "getCollections", 
                                           authState.token, authState.username].join("/"))
-            if (response.status === 200) {
+            if (localResponse.status === 200) {
                 setCollections({
-                    collections: await response.json()
+                    collections: await localResponse.json()
+                })
+            }
+            const publicResponse = await fetch([SERVER_IP, "api", "getCollections"].join("/"))
+            if (publicResponse.ok) {
+                setPublicCollections({
+                    collections: await publicResponse.json()
                 })
             }
         }
@@ -55,9 +68,16 @@ function Collections() {
     return (
         <div className="collections">
             <section>
-                    <CollectionsContext.Provider value={{ isEditing, toggleEditing }}>
-                        <CollectionsHeader setCollections={setCollections}/>
-                        {collections.collections.map((elem, i) => (
+                    <CollectionsContext.Provider value={{ isEditing, toggleEditing, setPublic }}>
+                        <center>
+                            <div className="">
+                                <button className={isPublic ? "localCollections" : "localCollections active"} onClick={() => setPublic(false)}>{t("localCollections")}</button>
+                                <button className={isPublic ? "publicCollections active" : "publicCollections"} onClick={() => setPublic(true)}>{t("publicCollections")}</button>
+                            </div>
+                        </center>
+                        
+                        <CollectionsHeader setCollections={setCollections} isPublic={isPublic}/>
+                        {(isPublic ? publicCollections : collections).collections.map((elem, i) => (
                             <Collection key={i} authorUsername={elem.username} 
                                         wordCount={elem.wordCount} collectionName={elem.name}
                                         onDelete={onCollectionDelete} />

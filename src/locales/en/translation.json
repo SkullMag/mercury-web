@@ -20,7 +20,9 @@
         "collectionNameInputPlaceholder": "Name",
         "addCollectionButton": "Create",
         "collectionNameLengthError": "Name is too short",
-        "collectionAlreadyCreatedError": "Try unique name"
+        "collectionAlreadyCreatedError": "Try unique name",
+        "localCollections": "My",
+        "publicCollections": "Public"
     },
     "collectionWords": {
         "learnButton": "Learn"

@@ -7,21 +7,21 @@ import FinishLearningCard from "./FinishLearningCard"
 import LearningCard from "./LearningCard"
 
 export default function Learning() {
-    const { collectionName } = useParams()
+    const { authorUsername, collectionName } = useParams()
     const location = useLocation()
     const wordsToLearn = location.state
     const authState = useSelector(state => state.auth)
     const [currentIndex, setCurrentIndex] = React.useState(0)
     const [wordsStatus, setWordsStatus] = React.useState([])
 
-    useEffect(() => {
+    useEffect(async () => {
         async function updatePriorities() {
             await fetch([SERVER_IP, "api", "learnWords", 
-                         authState.token, collectionName].join("/"),
+                         authState.token, authorUsername, collectionName].join("/"),
                          {method: "POST", body: JSON.stringify(wordsStatus)})
         }
         if (wordsStatus.length === wordsToLearn.length) {
-            updatePriorities()
+            await updatePriorities()
         }
     }, [wordsStatus])
 

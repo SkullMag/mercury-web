@@ -34,7 +34,7 @@ function Index() {
                     <Routes>
                         <Route path="/" element={<Navigate to="/dictionary" />} />
                         <Route path="/dictionary" element={<Dictionary />} />
-                        <Route path="/account" element={<ProfilePage />} />
+                        <Route path="/account/:username" element={<ProfilePage />} />
                         <Route path="/login" element={<LoginForm/>} />
                         <Route path="/signup" element={<SignUpForm />} />
                         <Route path="/verification" element={<VerificationCodePage />} />

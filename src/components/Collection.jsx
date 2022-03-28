@@ -39,7 +39,7 @@ function Collection({ authorUsername, collectionName, wordCount, onDelete }) {
                 </div>
                 <div className="card collectionFeatures">
                     <img src={TINYGRAPH_IP + "/spaceinvaders/" + authState.username + "?theme=bythepool&numcolors=4&size=200&fmt=svg"} alt="account" className="profilePicture" /> 
-                    <Link to="/account/">{"@" + authorUsername}</Link>
+                    <Link to={"/account/" + authorUsername}>{"@" + authorUsername}</Link>
                 </div>
             </div>
         </div>
