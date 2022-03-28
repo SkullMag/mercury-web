@@ -6,7 +6,7 @@ import { CollectionsContext } from "../context/CollectionsContext"
 import "../styles/CollectionsHeader.css"
 import { DropdownMenu } from "./DropdownMenu"
 
-export default function CollectionsHeader( {setCollections} ) {
+export default function CollectionsHeader({ setCollections, isPublic }) {
     const { t } = useTranslation("collections")
     const [dropdownHidden, setDropdownHidden] = React.useState(true)
     const [collectionName, setCollectionName] = React.useState("")
@@ -43,9 +43,11 @@ export default function CollectionsHeader( {setCollections} ) {
             <button className="createCollectionButton" onClick={() => setDropdownHidden(hidden => !hidden)}>
                 {t("createCollectionButton")}
             </button>
-            <button className="selectCollectionButton" onClick={toggleEditing}>
+            
+            {!isPublic && (<button className="selectCollectionButton" onClick={toggleEditing}>
                 {isEditing ? t("cancelEditingButton") : t("startEditingButton")}
-            </button>
+            </button>)}
+            
             <DropdownMenu 
                 style={{transform: "translateX(0) translateY(120px)", "text-align": "center"}} 
                 header={(
