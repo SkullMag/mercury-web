@@ -7,7 +7,7 @@ import {
     Navigate
 } from "react-router-dom";
 import React from 'react';
-import store from "./store";
+import { store } from "./store";
 import { Provider } from 'react-redux';
 import { fetchUser } from "./store/slices/auth";
 

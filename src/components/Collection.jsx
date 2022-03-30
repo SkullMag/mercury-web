@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { CollectionsContext } from "../context/CollectionsContext";
 import { useTranslation } from "react-i18next";
 import { ChevronIcon } from "../icons/ChevronIcon";
+import { useDeleteCollectionMutation } from "../store/api/collections"
 
 
 function Collection({ authorUsername, collectionName, wordCount, onDelete }) {
@@ -13,16 +14,23 @@ function Collection({ authorUsername, collectionName, wordCount, onDelete }) {
     const navigate = useNavigate();
     const authState = useSelector(state => state.auth)
     const { isEditing } = React.useContext(CollectionsContext)
+    const [deleteCollection, deleteCollectionResult] = useDeleteCollectionMutation()
 
     function openCollection() {
         navigate("/collections/" + authorUsername + "/" + collectionName)
+    }
+
+    function deleteCol() {
+        console.log(collectionName);
+        deleteCollection({token: authState.token, collectionName: collectionName})
+
     }
 
     return (
         <div style={{display: "flex"}}>
             {isEditing && (
                 <div className="editButtons">
-                    <button className="deleteCurrentCollection" onClick={() => onDelete(collectionName)}>{t("deleteCollectionButton")}</button>
+                    <button className="deleteCurrentCollection" onClick={deleteCol}>{t("deleteCollectionButton")}</button>
                     {/* <button className="renameCurrentCollection">Rename</button> */}
                 </div>
             )}

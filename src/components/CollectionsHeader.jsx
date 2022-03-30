@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { SERVER_IP } from "../constants"
 import { CollectionsContext } from "../context/CollectionsContext"
+import { useCreateCollectionMutation } from "../store/api/collections"
 import "../styles/CollectionsHeader.css"
 import { DropdownMenu } from "./DropdownMenu"
 
@@ -13,28 +14,22 @@ export default function CollectionsHeader({ setCollections, isPublic }) {
     const [errorText, setErrorText] = React.useState("")
     const authState = useSelector(state => state.auth)
     const { isEditing, toggleEditing } = React.useContext(CollectionsContext)
+    const [createCollection, createCollectionResult] = useCreateCollectionMutation()
 
     function collectionNameChanged(event) {
         setCollectionName(event.target.value)
     }
 
-    async function createCollection() {
+    async function create() {
         if (collectionName.length < 3) {
             setErrorText(t("collectionNameLengthError"))
             return
         }
-        let response = await fetch([SERVER_IP, "api", "createCollection", 
-                                      authState.token, collectionName].join("/"), 
-                                      { method: "POST" })
-        if (!response.ok) {
-            setErrorText(t("collectionAlreadyCreatedError"))
-            return
-        }
-        if (response.status === 200) {
-            setCollections(state => {
-                return {collections: [...state.collections, {name: collectionName, wordCount: 0, username: authState.username}]}
-            })
-            setDropdownHidden(hidden => !hidden)
+        try {
+            await createCollection({token: authState.token, collectionName: collectionName}).unwrap()
+            setDropdownHidden(true)
+        } catch (error) {
+            setErrorText("Collection already exists")
         }
     }
 
@@ -61,7 +56,7 @@ export default function CollectionsHeader({ setCollections, isPublic }) {
                            value={collectionName} onChange={collectionNameChanged} />
                 )} 
                 footer={(
-                    <button className="addCollectionButton" onClick={createCollection}>
+                    <button className="addCollectionButton" onClick={create}>
                         {t("addCollectionButton")}
                     </button>
                 )}

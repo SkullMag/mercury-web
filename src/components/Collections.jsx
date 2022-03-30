@@ -9,57 +9,17 @@ import { CollectionsContext } from "../context/CollectionsContext";
 import { Navigate } from "react-router";
 import "../styles/Collections.css"
 import { useTranslation } from "react-i18next";
+import { useGetLocalCollectionsQuery, useGetPublicCollectionsQuery } from "../store/api/collections";
 
 
 function Collections() {
-    const authState = useSelector(state => state.auth);
-    const [collections, setCollections] = useState({
-        collections: []
-    })
+    const authState = useSelector(state => state.auth)
+    const { data: collections } = useGetLocalCollectionsQuery(authState.token)
+    const { data: publicCollections } = useGetPublicCollectionsQuery()
     const [isPublic, setPublic] = useState(false)
-    const [publicCollections, setPublicCollections] = useState({
-        collections: []
-    })
     const [isEditing, setEditing] = useState(false)
     const { t } = useTranslation("collections")
-
-    const toggleEditing = () => {
-        setEditing(edit => !edit)
-    }
-
-    const onCollectionDelete = async ( name ) => {
-        const response = await fetch([SERVER_IP, "api", "deleteCollection", 
-                                authState.token, name].join("/"),
-                                { method: "POST" })
-        if (response.ok) {
-            setCollections({
-                collections: collections.collections.filter(col => col.name !== name)
-            })
-        } else {
-            // handle error while deleting collection
-        }
-    }
-
-    useEffect(() => {
-        async function fetchCollections() {
-            const localResponse = await fetch([SERVER_IP, "api", "getCollections", 
-                                          authState.token, authState.username].join("/"))
-            if (localResponse.status === 200) {
-                setCollections({
-                    collections: await localResponse.json()
-                })
-            }
-            const publicResponse = await fetch([SERVER_IP, "api", "getCollections"].join("/"))
-            if (publicResponse.ok) {
-                setPublicCollections({
-                    collections: await publicResponse.json()
-                })
-            }
-        }
-        if (authState.username !== "") {
-            fetchCollections()
-        }
-    }, [authState.username]);
+    const toggleEditing = () => setEditing(edit => !edit)
 
     if (authState.token === "") {
         return (<Navigate to="/login" />);
@@ -76,11 +36,10 @@ function Collections() {
                             </div>
                         </center>
                         
-                        <CollectionsHeader setCollections={setCollections} isPublic={isPublic}/>
-                        {(isPublic ? publicCollections : collections).collections.map((elem, i) => (
+                        <CollectionsHeader isPublic={isPublic}/>
+                        {(isPublic ? publicCollections : collections) && (isPublic ? publicCollections : collections).map((elem, i) => (
                             <Collection key={i} authorUsername={elem.username} 
-                                        wordCount={elem.wordCount} collectionName={elem.name}
-                                        onDelete={onCollectionDelete} />
+                                        wordCount={elem.wordCount} collectionName={elem.name}/>
                         ))}
                     </CollectionsContext.Provider>
                
