@@ -20,15 +20,17 @@ export default function CollectionsHeader({ setCollections, isPublic }) {
         setCollectionName(event.target.value)
     }
 
-    function create() {
+    async function create() {
         if (collectionName.length < 3) {
             setErrorText(t("collectionNameLengthError"))
             return
         }
-        // Specify error handling
-        createCollection({token: authState.token, collectionName: collectionName})
-        setDropdownHidden(true)
-
+        try {
+            await createCollection({token: authState.token, collectionName: collectionName}).unwrap()
+            setDropdownHidden(true)
+        } catch (error) {
+            setErrorText("Collection already exists")
+        }
     }
 
     return (
