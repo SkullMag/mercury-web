@@ -11,9 +11,9 @@ const collections = mercuryApi.injectEndpoints({
             providesTags: ["PublicCollection"]
         }),
         deleteCollection: builder.mutation({
-            query: (token, collectionName) => ({
+            query: ({token, collectionName}) => ({
                 url: `deleteCollection/${token}/${collectionName}`,
-                method: "DELETE"
+                method: "POST"
             }),
             invalidatesTags: ["LocalCollection", "PublicCollection"]
         }),
