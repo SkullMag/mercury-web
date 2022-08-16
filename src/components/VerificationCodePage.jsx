@@ -34,7 +34,6 @@ function VerificationCodePage() {
             setErrorText("Wait for " + seconds + " seconds");
             return;
         }
-        console.log(state.email);
         var json_data, statusCode = await requestVerificationCode(state.email)
         if (statusCode === 200) {
             setSeconds(59);
@@ -55,8 +54,6 @@ function VerificationCodePage() {
             const response = await fetch(SERVER_IP + "/api/signup", {method: "POST", body: JSON.stringify(payload)});
             if (response.status === 200) {
                 navigate("/login");
-            } else {
-                console.log(await response.json());
             }
         } else {
             setErrorText("Fullfill the verification code")

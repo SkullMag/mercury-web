@@ -19,9 +19,10 @@ import SignUpForm from "./components/SignUpForm";
 import VerificationCodePage from "./components/VerificationCodePage";
 import Collections from "./components/Collections";
 import CollectionWords from './components/CollectionWords';
+import Learning from './components/Learning';
+
 import { Suspense } from 'react';
 import './i18n'
-import Learning from './components/Learning';
 
 store.dispatch(fetchUser);
 
