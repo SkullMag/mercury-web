@@ -4,7 +4,7 @@ import enLocalization from "./locales/en/translation.json"
 import ruLocalization from "./locales/ru/translation.json"
 
 i18n.use(initReactI18next).init({
-    fallbackLng: 'ru',
+    fallbackLng: 'en',
     debug: true,
     resources: {
         en: enLocalization,
